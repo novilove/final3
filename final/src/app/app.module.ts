@@ -14,7 +14,7 @@ import { StartComponent } from './component/start/start.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'usuario', component: UsuarioComponent },
-  { path: 'evento', component: EventComponent }, 
+  { path: 'event', component: EventComponent }, 
   { path: 'adminstrador', component: AdminComponent },
   { path: 'login', component: LoginComponent },
   { path: 'inicio', component: StartComponent },
