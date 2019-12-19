@@ -1,0 +1,14 @@
+.typohead{
+    font-family: Georgia ;
+    font-size: 20px;
+}
+.divs {    
+    text-align: center;
+}
+.buttonL{
+    border-radius: 5px;
+}
+#left{
+    text-align: right;
+    width: 95%;
+}
