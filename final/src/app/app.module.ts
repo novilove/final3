@@ -21,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inicio', component: StartComponent },
   { path: 'sigin-up',component: SiginUpComponent},
+  { path: 'wevent',component: WeventComponent},
   {
     path: 'home',
     component: HomeComponent,
