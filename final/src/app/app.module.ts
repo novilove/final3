@@ -11,6 +11,7 @@ import { AdminComponent } from './component/admin/admin.component';
 import { LoginComponent } from './component/login/login.component';
 import { StartComponent } from './component/start/start.component';
 import { SiginUpComponent } from './component/sigin-up/sigin-up.component';
+import { WeventComponent } from './component/wevent/wevent.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     AdminComponent,
     LoginComponent,
     StartComponent,
-    SiginUpComponent
+    SiginUpComponent,
+    WeventComponent
   ],
   imports: [
     BrowserModule,
