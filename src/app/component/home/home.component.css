@@ -1,0 +1,59 @@
+#nav-title{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 8px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#rectangle{
+    height: 160px;
+    width:auto;
+    background-color:rgb(79, 144, 182);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#square{
+    height:1500px;
+    width: auto;
+    background-color: #ebebeb;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 600px;
+    border-width: 10px;
+    border-collapse: collapse;
+}
+
+#introduction{
+    padding-top: 20px;
+    background-color:#3d1a1a;
+    height: 300px;
+    width: 600px;
+}
+
+#rectangle-title{
+    text-align: center;
+    justify-content: center;
+    padding-top: 55px;
+}
+
+#square-title{
+    text-align: center;
+    justify-content: center;
+    padding: 500px;
+
+}
+
+#howit{
+    padding-top: 5px;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    padding-bottom: 50px;
+
+
+}
