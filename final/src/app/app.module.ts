@@ -10,6 +10,7 @@ import { EventComponent } from './component/event/event.component';
 import { AdminComponent } from './component/admin/admin.component';
 import { LoginComponent } from './component/login/login.component';
 import { StartComponent } from './component/start/start.component';
+import { SiginUpComponent } from './component/sigin-up/sigin-up.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'adminstrador', component: AdminComponent },
   { path: 'login', component: LoginComponent },
   { path: 'inicio', component: StartComponent },
+  { path: 'sigin-up',component: SiginUpComponent},
   {
     path: 'home',
     component: HomeComponent,
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     EventComponent,
     AdminComponent,
     LoginComponent,
-    StartComponent
+    StartComponent,
+    SiginUpComponent
   ],
   imports: [
     BrowserModule,
