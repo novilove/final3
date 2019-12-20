@@ -1,0 +1,20 @@
+.image{
+    
+    border-radius: 10px;
+}
+.map{
+    margin-bottom: 100px;
+}
+.title{
+   font-size: 40px;
+   font-family: monospace;
+   margin-left: 200px;
+}
+.hrs{
+    
+    margin-left: 200px;
+}
+.bodytext{
+    font-family:Helvetica;
+    font-size: 22px;
+}
