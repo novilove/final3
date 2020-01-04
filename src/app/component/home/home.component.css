@@ -57,3 +57,24 @@
 
 
 }
+
+#rectangulo{
+    height: 300px;
+    width: auto;
+    background-color: rgb(9, 9, 32);
+}
+
+#lupa{
+    height: 70px;
+    width: 70px;
+    position: relative;
+    left: 300px;
+    top: 80px;
+}
+
+#text{
+    color:rgb(255, 255, 255);
+    position: relative;
+    left: 380px;
+    top: 23px;
+}
