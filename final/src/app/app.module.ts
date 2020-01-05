@@ -4,14 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './component/home/home.component';
-import { UsuarioComponent } from './component/usuario/usuario.component';
-import { EventComponent } from './component/event/event.component';
-import { AdminComponent } from './component/admin/admin.component';
-import { LoginComponent } from './component/login/login.component';
-import { StartComponent } from './component/start/start.component';
-import { SiginUpComponent } from './component/sigin-up/sigin-up.component';
-import { WeventComponent } from './component/wevent/wevent.component';
+import { HomeComponent } from './pages/home/home.component';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { EventComponent } from './pages/event/event.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { LoginComponent } from './pages/login/login.component';
+import { StartComponent } from './pages/start/start.component';
+import { SiginUpComponent } from './pages/sigin-up/sigin-up.component';
+import { WeventComponent } from './pages/wevent/wevent.component';
+import { ComponentModule } from './components/component.module';
+
+
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,11 +30,11 @@ const appRoutes: Routes = [
     component: HomeComponent,
     data: { title: 'home' }
   },
-  { path: '',
+  { path: '**',
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  { path: '**', component:HomeComponent }
+  
 ];
 
 @NgModule({
@@ -44,7 +47,9 @@ const appRoutes: Routes = [
     LoginComponent,
     StartComponent,
     SiginUpComponent,
-    WeventComponent
+    WeventComponent,
+ 
+   
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,8 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true }),
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      ComponentModule
   
   ],
   providers: [],
