@@ -6,13 +6,18 @@ import javax.persistence.*;
 @Table(name="LOGINS")
 public class Login {
     @Id
-    @Column(name="id_login")
+    @Column(name="ID_LOGIN")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="correo", unique = true, nullable = false)
-    private String correo;
-    @Column(name= "contraseña", nullable = false)
-    private String contrasena;
+
+    @Column(name="EMAIL", unique = true, nullable = false)
+    private String email;
+
+    @Column(name= "PASSWORD", nullable = false)
+    private String password;
+
+    @OneToOne(mappedBy = "logins",cascade = CascadeType.ALL)
+    private User users;
 
     public Long getId() {
         return id;
@@ -22,19 +27,27 @@ public class Login {
         this.id = id;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String correo) {
+        this.email = correo;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public User getUsers() {
+        return users;
+    }
+
+    public void setUsers(User users) {
+        this.users = users;
     }
 }

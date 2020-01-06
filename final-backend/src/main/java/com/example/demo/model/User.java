@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="USER")
-public class Usuario {
+public class User {
 
     @Id
     @Column(name="ID")
@@ -16,6 +16,10 @@ public class Usuario {
 
     @Column(name ="AGE", nullable = false)
     private Integer age;
+
+    @OneToOne
+    @JoinColumn(name = "FK_LOGIN", nullable = false)
+    private Login logins;
 
     public Long getId() {
         return id;
@@ -39,5 +43,13 @@ public class Usuario {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Login getLogins() {
+        return logins;
+    }
+
+    public void setLogins(Login logins) {
+        this.logins = logins;
     }
 }
