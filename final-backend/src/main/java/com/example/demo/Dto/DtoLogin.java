@@ -1,11 +1,31 @@
 package com.example.demo.Dto;
 
+import javax.persistence.Column;
+
 public class DtoLogin {
     private Long idDto;
     private String nameDto;
     private Integer ageDto;
     private String emailDto;
     private String passwordDto;
+    private String lastNameDto;
+    private String genreDto;
+
+    public String getLastNameDto() {
+        return lastNameDto;
+    }
+
+    public void setLastNameDto(String lastNameDto) {
+        this.lastNameDto = lastNameDto;
+    }
+
+    public String getGenreDto() {
+        return genreDto;
+    }
+
+    public void setGenreDto(String genreDto) {
+        this.genreDto = genreDto;
+    }
 
     public Long getIdDto() {
         return this.idDto;
