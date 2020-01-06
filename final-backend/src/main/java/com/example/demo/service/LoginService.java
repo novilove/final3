@@ -6,9 +6,10 @@ import com.example.demo.model.Login;
 import java.util.List;
 
 public interface LoginService {
-    /*
-    Login guardarLogin(DtoLogin estudiante) throws Exception;
 
-     */
+    Login guardarLogin(DtoLogin logins) throws Exception;
+
+
+
 
 }
