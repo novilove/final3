@@ -1,12 +1,15 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name="LOGINS")
 public class Login {
+
     @Id
     @Column(name="EMAIL", unique = true, nullable = false)
+    @Email
     private String email;
 
     @Column(name= "PASSWORD", nullable = false)

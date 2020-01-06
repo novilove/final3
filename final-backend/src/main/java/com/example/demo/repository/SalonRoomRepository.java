@@ -1,13 +1,10 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Login;
+import com.example.demo.model.SalonRoom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LoginRepository extends JpaRepository<Login, Long> {
-
-     Login findByEmail(String email);
-
-
+public interface SalonRoomRepository extends JpaRepository<SalonRoom, Long> {
+    SalonRoom findById(SalonRoom salones);
 }
