@@ -6,10 +6,6 @@ import javax.persistence.*;
 @Table(name="LOGINS")
 public class Login {
     @Id
-    @Column(name="ID_LOGIN")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column(name="EMAIL", unique = true, nullable = false)
     private String email;
 
@@ -19,13 +15,6 @@ public class Login {
     @OneToOne(mappedBy = "logins",cascade = CascadeType.ALL)
     private User users;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;

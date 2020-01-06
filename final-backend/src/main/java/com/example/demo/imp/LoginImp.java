@@ -13,7 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class LoginImp implements LoginService {
+public class LoginImp  {
+    /*
     @Autowired
     private LoginRepository loginRepo;
 
@@ -61,6 +62,8 @@ public class LoginImp implements LoginService {
         }
 
     }
+
+     */
 
 
 }
