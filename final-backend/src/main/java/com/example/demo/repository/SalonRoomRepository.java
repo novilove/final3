@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SalonRoomRepository extends JpaRepository<SalonRoom, Long> {
-    SalonRoom findById(SalonRoom salones);
+    SalonRoom findByid(SalonRoom salones);
 }

@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
 
 import javax.persistence.*;
 
@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name="CATEGORIES")
 public class Category {
 
+    @Id
     @Column(name="ID", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,6 +18,9 @@ public class Category {
 
     @Column(name="DESCRIPTION")
     private String description;
+
+    @OneToOne(mappedBy = "fkCategory", cascade = CascadeType.ALL)
+    private Event event;
 
     public Long getId() {
         return id;
@@ -40,5 +44,13 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 }

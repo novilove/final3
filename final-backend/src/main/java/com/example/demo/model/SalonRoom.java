@@ -17,6 +17,9 @@ public class SalonRoom {
     @Column(name= "CAPACITY", nullable = false)
     private Integer capacity;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Place place;
+
     public Long getId() {
         return id;
     }
@@ -39,5 +42,13 @@ public class SalonRoom {
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
     }
 }

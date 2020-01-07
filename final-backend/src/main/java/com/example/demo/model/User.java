@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="USER")
@@ -31,9 +32,12 @@ public class User {
     private Login logins;
 
     @ManyToOne
-    @JoinColumn(name="FK_ID_COUNTRY")
-    private Country countryUser;
+    @JoinColumn(name = "FK_COUNTRY", nullable = false)
+    private Country country;
 
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
+    private List<UserEvent> userEventList;
 
     public Long getId() {
         return id;
@@ -91,11 +95,19 @@ public class User {
         this.logins = logins;
     }
 
-    public Country getCountryUser() {
-        return countryUser;
+    public Country getCountry() {
+        return country;
     }
 
-    public void setCountryUser(Country countryUser) {
-        this.countryUser = countryUser;
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public List<UserEvent> getUserEventList() {
+        return userEventList;
+    }
+
+    public void setUserEventList(List<UserEvent> userEventList) {
+        this.userEventList = userEventList;
     }
 }

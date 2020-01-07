@@ -7,23 +7,27 @@ public class Speaker {
     @Id
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name="NAME", nullable = false)
     private String name;
+
     @Column(name="DESCRIPTION", nullable = false)
-    private String Description;
-    @Column(name="COUNTRY", nullable = false)
-    private String Country;
+    private String description;
+
     @Column(name="CHANGE", nullable = false)
-    private String Change;
+    private String change;
+
+    @ManyToOne
+    @JoinColumn(name = "FK_COUNTRY", nullable = false)
+    private Country country;
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -35,26 +39,26 @@ public class Speaker {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
-    }
-
-    public String getCountry() {
-        return Country;
-    }
-
-    public void setCountry(String country) {
-        Country = country;
+        this.description = description;
     }
 
     public String getChange() {
-        return Change;
+        return change;
     }
 
     public void setChange(String change) {
-        Change = change;
+        this.change = change;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 }

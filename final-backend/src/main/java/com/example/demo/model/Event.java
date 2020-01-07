@@ -1,9 +1,7 @@
 package com.example.demo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="EVENTS")
@@ -31,11 +29,20 @@ public class Event {
     @Column(name = "CAPACITY")
     private Integer capacity;
 
-    @Column(name = "FK_PLACES")
-    private Place fkPlace;
+    @ManyToOne
+    @JoinColumn(name = "FK_PLACES", nullable = false, updatable = false)
+    private Place place;
 
-    @Column(name = "FK_CATEGORY")
+    @OneToOne
+    @JoinColumn(name = "FK_CATEGORY", nullable = false)
     private Category fkCategory;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
+    private List<Talk> talkList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
+    private List<UserEvent> userEventList;
 
     public Long getId() {
         return id;
@@ -93,12 +100,12 @@ public class Event {
         this.capacity = capacity;
     }
 
-    public Place getFkPlace() {
-        return fkPlace;
+    public Place getPlace() {
+        return place;
     }
 
-    public void setFkPlace(Place fkPlace) {
-        this.fkPlace = fkPlace;
+    public void setPlace(Place place) {
+        this.place = place;
     }
 
     public Category getFkCategory() {
@@ -107,6 +114,24 @@ public class Event {
 
     public void setFkCategory(Category fkCategory) {
         this.fkCategory = fkCategory;
+    }
+
+
+
+    public List<Talk> getTalkList() {
+        return talkList;
+    }
+
+    public void setTalkList(List<Talk> talkList) {
+        this.talkList = talkList;
+    }
+
+    public List<UserEvent> getUserEventList() {
+        return userEventList;
+    }
+
+    public void setUserEventList(List<UserEvent> userEventList) {
+        this.userEventList = userEventList;
     }
 }
 
