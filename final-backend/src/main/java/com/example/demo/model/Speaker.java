@@ -4,8 +4,9 @@ import javax.persistence.*;
 @Entity
 @Table(name="SPEAKER")
 public class Speaker {
+
     @Id
-    @Column(name="ID")
+    @Column(name="ID",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

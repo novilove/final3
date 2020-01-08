@@ -37,12 +37,29 @@ public class Event {
     @JoinColumn(name = "FK_CATEGORY", nullable = false)
     private Category fkCategory;
 
-
+/*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private List<Talk> talkList;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private List<UserEvent> userEventList;
+
+        public List<Talk> getTalkList() {
+        return talkList;
+    }
+
+    public void setTalkList(List<Talk> talkList) {
+        this.talkList = talkList;
+    }
+
+    public List<UserEvent> getUserEventList() {
+        return userEventList;
+    }
+
+    public void setUserEventList(List<UserEvent> userEventList) {
+        this.userEventList = userEventList;
+    }
+ */
 
     public Long getId() {
         return id;
@@ -118,20 +135,6 @@ public class Event {
 
 
 
-    public List<Talk> getTalkList() {
-        return talkList;
-    }
 
-    public void setTalkList(List<Talk> talkList) {
-        this.talkList = talkList;
-    }
-
-    public List<UserEvent> getUserEventList() {
-        return userEventList;
-    }
-
-    public void setUserEventList(List<UserEvent> userEventList) {
-        this.userEventList = userEventList;
-    }
 }
 

@@ -18,6 +18,11 @@ public class User {
     @Column(name="LAST_NAME",nullable = false)
     private String lastName;
 
+    @Column(name = "RUT",nullable = false)
+    private String rut;
+
+
+
     @Column(name ="AGE", nullable = false)
     private Integer age;
 
@@ -29,15 +34,34 @@ public class User {
 
     @OneToOne
     @JoinColumn(name = "FK_LOGIN", nullable = false)
-    private Login logins;
+    private Login login;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "FK_COUNTRY", nullable = false)
     private Country country;
 
+/*
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "users",fetch = FetchType.LAZY)
     private List<UserEvent> userEventList;
+
+        public List<UserEvent> getUserEventList() {
+        return userEventList;
+    }
+
+    public void setUserEventList(List<UserEvent> userEventList) {
+        this.userEventList = userEventList;
+    }
+
+ */
+
+    public String getRut() {
+        return rut;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
 
     public Long getId() {
         return id;
@@ -87,12 +111,12 @@ public class User {
         this.type = type;
     }
 
-    public Login getLogins() {
-        return logins;
+    public Login getLogin() {
+        return login;
     }
 
-    public void setLogins(Login logins) {
-        this.logins = logins;
+    public void setLogins(Login login) {
+        this.login = login;
     }
 
     public Country getCountry() {
@@ -103,11 +127,5 @@ public class User {
         this.country = country;
     }
 
-    public List<UserEvent> getUserEventList() {
-        return userEventList;
-    }
 
-    public void setUserEventList(List<UserEvent> userEventList) {
-        this.userEventList = userEventList;
-    }
 }

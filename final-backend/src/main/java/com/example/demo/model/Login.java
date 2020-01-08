@@ -15,8 +15,19 @@ public class Login {
     @Column(name= "PASSWORD", nullable = false)
     private String password;
 
-    @OneToOne(mappedBy = "logins",cascade = CascadeType.ALL)
+
+    @OneToOne(mappedBy = "login",cascade = CascadeType.ALL)
     private User users;
+
+    public User getUsers() {
+        return users;
+    }
+
+    public void setUsers(User users) {
+        this.users = users;
+    }
+
+
 
 
     public String getEmail() {
@@ -35,11 +46,5 @@ public class Login {
         this.password = password;
     }
 
-    public User getUsers() {
-        return users;
-    }
 
-    public void setUsers(User users) {
-        this.users = users;
-    }
 }

@@ -3,28 +3,30 @@ package com.example.demo.controller;
 import com.example.demo.Dto.DtoLogin;
 import com.example.demo.exception.MailExisteException;
 import com.example.demo.exception.UsuarioExistenteException;
+
 import com.example.demo.imp.LoginImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-/*
+
+
+
+
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/v1/login")
-
- */
+@RequestMapping("/api/v2/login")
 public class LoginController {
-/*
+
     @Autowired
-    private LoginImp loginimple;
+    private LoginImp imp;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Object> guardarLogin(@RequestBody DtoLogin dtoLogin) {
+    public ResponseEntity<Object> crearUsuaio(@RequestBody DtoLogin dtoLogin) {
         ResponseEntity<Object> rs = null;
 
         try {
-            rs = new ResponseEntity<Object>(loginimple.guardarLogin(dtoLogin), HttpStatus.OK);
+            rs = new ResponseEntity<Object>(imp.crearUsuario(dtoLogin), HttpStatus.OK);
 
         } catch (UsuarioExistenteException ex) {
             ex.printStackTrace();
@@ -40,5 +42,5 @@ public class LoginController {
         return rs;
     }
 
- */
+
 }

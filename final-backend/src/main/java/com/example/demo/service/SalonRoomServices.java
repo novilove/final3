@@ -4,5 +4,5 @@ import com.example.demo.model.SalonRoom;
 
 public interface SalonRoomServices {
 
-    SalonRoom guardarSalon (SalonRoom room);
+
 }

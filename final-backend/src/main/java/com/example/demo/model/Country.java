@@ -12,8 +12,9 @@ public class Country {
 
     @Column(name="NAME",nullable = false)
     private String name;
-
+/*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
+
     private List<Place> placeList;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
@@ -22,23 +23,7 @@ public class Country {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
     private List<User> userList;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Place> getPlaceList() {
+ public List<Place> getPlaceList() {
         return placeList;
     }
 
@@ -61,4 +46,23 @@ public class Country {
     public void setUserList(List<User> userList) {
         this.userList = userList;
     }
+
+ */
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
 }
