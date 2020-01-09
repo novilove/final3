@@ -3,6 +3,7 @@ package com.example.demo.imp;
 
 import com.example.demo.Dto.DtoLogin;
 import com.example.demo.exception.MailExisteException;
+import com.example.demo.exception.NoEncontradoException;
 import com.example.demo.exception.UsuarioExistenteException;
 import com.example.demo.model.Country;
 import com.example.demo.model.Login;
@@ -13,9 +14,11 @@ import com.example.demo.repository.UserRepository;
 
 import com.example.demo.service.LoginService;
 import com.example.demo.util.Constant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 
 
 @Service
@@ -61,7 +64,7 @@ public class LoginImp implements LoginService {
                 use.setGenre(dtoLogin.getGenreDto());
                 use.setLastName(dtoLogin.getLastNameDto());
                 use.setName(dtoLogin.getNameDto());
-                use.setRut(dtoLogin.getRutDto());
+
                 use.setType(dtoLogin.getTypeDto());
                 use.setCountry(cou);
                 use.setLogin(log);
@@ -95,7 +98,7 @@ public class LoginImp implements LoginService {
             }
             if (validarMail != null && validarRut == null) {
                 throw new MailExisteException(Constant.ERROR_MAIL_EXISTE);
-            }
+        }
             if (validarMail != null && validarRut != null){
                 throw new UsuarioExistenteException(Constant.ERROR_USUARIO_CREADO);
             }
@@ -116,10 +119,28 @@ public class LoginImp implements LoginService {
     }
 
     @Override
-    public Boolean eliminarUsuario(String email) throws Exception {
+    public Boolean eliminarUsuario(Long id) throws Exception {
+        Boolean elimi = false;
+        try {
 
-        Login buscarMail =
-        return null;
+            Optional<User> buscarUser = userRepo.findById(id);
+            Login buscarMail =  loginRepo.findByEmail(buscarUser.get().getLogin().getEmail());
+            if (buscarMail != null) {
+                loginRepo.delete(buscarMail);
+                userRepo.delete(buscarUser.get());
+                return elimi = true;
+            }
+            if(buscarMail== null){
+                throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
+            }
+
+        }catch (NoEncontradoException ex) {
+            ex.printStackTrace();
+            throw new NoEncontradoException(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return elimi;
     }
 
 }

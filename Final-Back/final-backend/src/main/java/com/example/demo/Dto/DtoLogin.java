@@ -1,5 +1,7 @@
 package com.example.demo.Dto;
 
+
+
 public class DtoLogin {
 
     private String nameDto;
@@ -12,12 +14,20 @@ public class DtoLogin {
     private String countryDto;
     private String typeDto;
 
-    public String getTypeDto() {
-        return typeDto;
+    public String getNameDto() {
+        return nameDto;
     }
 
-    public void setTypeDto(String typeDto) {
-        this.typeDto = typeDto;
+    public void setNameDto(String nameDto) {
+        this.nameDto = nameDto;
+    }
+
+    public String getLastNameDto() {
+        return lastNameDto;
+    }
+
+    public void setLastNameDto(String lastNameDto) {
+        this.lastNameDto = lastNameDto;
     }
 
     public String getRutDto() {
@@ -28,22 +38,12 @@ public class DtoLogin {
         this.rutDto = rutDto;
     }
 
-    public String getCountryDto() {
-        return countryDto;
+    public Integer getAgeDto() {
+        return ageDto;
     }
 
-    public void setCountryDto(String countryDto) {
-        this.countryDto = countryDto;
-    }
-
-
-
-    public String getLastNameDto() {
-        return lastNameDto;
-    }
-
-    public void setLastNameDto(String lastNameDto) {
-        this.lastNameDto = lastNameDto;
+    public void setAgeDto(Integer ageDto) {
+        this.ageDto = ageDto;
     }
 
     public String getGenreDto() {
@@ -54,25 +54,8 @@ public class DtoLogin {
         this.genreDto = genreDto;
     }
 
-
-    public String getNameDto() {
-        return nameDto;
-    }
-
-    public void setNameDto(String nameDto) {
-        this.nameDto = nameDto;
-    }
-
-    public Integer getAgeDto() {
-        return ageDto;
-    }
-
-    public void setAgeDto(Integer ageDto) {
-        this.ageDto = ageDto;
-    }
-
     public String getEmailDto() {
-        return this.emailDto;
+        return emailDto;
     }
 
     public void setEmailDto(String emailDto) {
@@ -85,5 +68,21 @@ public class DtoLogin {
 
     public void setPasswordDto(String passwordDto) {
         this.passwordDto = passwordDto;
+    }
+
+    public String getCountryDto() {
+        return countryDto;
+    }
+
+    public void setCountryDto(String countryDto) {
+        this.countryDto = countryDto;
+    }
+
+    public String getTypeDto() {
+        return typeDto;
+    }
+
+    public void setTypeDto(String typeDto) {
+        this.typeDto = typeDto;
     }
 }

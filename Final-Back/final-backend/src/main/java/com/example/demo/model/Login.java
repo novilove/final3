@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
+import java.util.Optional;
 
 @Entity
 @Table(name = "LOGINS")
@@ -13,7 +13,6 @@ public class Login {
     private Long id;
 
     @Column(name ="EMAIL", nullable = false )
-    @Email
     private String email;
 
     @Column(name= "PASSWORD", nullable = false)

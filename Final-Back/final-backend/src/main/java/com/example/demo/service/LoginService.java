@@ -8,9 +8,8 @@ import org.springframework.stereotype.Service;
 public interface LoginService {
 
     Login crearUsuario(DtoLogin logins) throws Exception;
-    Boolean eliminarUsuario(String email) throws Exception;
 
 
 
-
+    Boolean eliminarUsuario(Long id) throws Exception;
 }
