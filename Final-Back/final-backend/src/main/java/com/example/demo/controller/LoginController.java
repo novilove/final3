@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.Dto.DtoLogin;
+import com.example.demo.exception.EdadNoPermitidaException;
 import com.example.demo.exception.MailExisteException;
 import com.example.demo.exception.NoEncontradoException;
 import com.example.demo.exception.UsuarioExistenteException;
@@ -29,6 +30,9 @@ public class LoginController {
         try {
             rs = new ResponseEntity<Object>(imp.crearUsuario(dtoLogin), HttpStatus.OK);
 
+        }catch (EdadNoPermitidaException ex) {
+            ex.printStackTrace();
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
         } catch (UsuarioExistenteException ex) {
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
@@ -43,10 +47,10 @@ public class LoginController {
         return rs;
     }
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    public ResponseEntity<Object> eliminarUsuario(@PathVariable Long emai){
+    public ResponseEntity<Object> eliminarUsuario(@PathVariable Long id){
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(imp.eliminarUsuario(emai),HttpStatus.OK);
+            rs = new ResponseEntity<Object>(imp.eliminarUsuario(id),HttpStatus.OK);
         }catch (NoEncontradoException ex){
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;

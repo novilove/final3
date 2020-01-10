@@ -7,11 +7,13 @@ import java.util.List;
 @Table (name="COUNTRY")
 public class Country {
     @Id
-    @Column(name="COUNTRY",nullable = false , unique = true)
+    @Column(name="ID",nullable = false , unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name="NAME",nullable = false)
     private String name;
+
 /*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
 

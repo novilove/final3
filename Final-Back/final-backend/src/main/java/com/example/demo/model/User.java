@@ -36,7 +36,7 @@ public class User {
     @JoinColumn(name = "FK_LOGIN", nullable = false)
     private Login login;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_COUNTRY", nullable = false)
     private Country country;
 

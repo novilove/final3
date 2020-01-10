@@ -2,6 +2,7 @@ package com.example.demo.imp;
 
 
 import com.example.demo.Dto.DtoLogin;
+import com.example.demo.exception.EdadNoPermitidaException;
 import com.example.demo.exception.MailExisteException;
 import com.example.demo.exception.NoEncontradoException;
 import com.example.demo.exception.UsuarioExistenteException;
@@ -46,7 +47,9 @@ public class LoginImp implements LoginService {
             Country validarPais = countRepo.findByName(dtoLogin.getCountryDto());
 
             if(validarRut == null && validarMail == null && validarPais == null) {
-
+                if((dtoLogin.getAgeDto() )< 13 || (dtoLogin.getAgeDto()) > 120){
+                    throw new EdadNoPermitidaException(Constant.ERROR_EDAD);
+                }
                 log = new Login();
                 log.setEmail(dtoLogin.getEmailDto());
                 log.setPassword(dtoLogin.getPasswordDto());
@@ -57,14 +60,11 @@ public class LoginImp implements LoginService {
                 cou = countRepo.save(cou);
 
                 use = new User();
-                use.setAge(dtoLogin.getAgeDto());
-
-
-
-                use.setGenre(dtoLogin.getGenreDto());
-                use.setLastName(dtoLogin.getLastNameDto());
+                use.setRut(dtoLogin.getRutDto());
                 use.setName(dtoLogin.getNameDto());
-
+                use.setLastName(dtoLogin.getLastNameDto());
+                use.setAge(dtoLogin.getAgeDto());
+                use.setGenre(dtoLogin.getGenreDto());
                 use.setType(dtoLogin.getTypeDto());
                 use.setCountry(cou);
                 use.setLogin(log);
@@ -84,6 +84,7 @@ public class LoginImp implements LoginService {
                 cou = validarPais;
 
                 use = new User();
+                use.setRut(dtoLogin.getRutDto());
                 use.setName(dtoLogin.getNameDto());
                 use.setLastName(dtoLogin.getLastNameDto());
                 use.setAge(dtoLogin.getAgeDto());
@@ -102,7 +103,9 @@ public class LoginImp implements LoginService {
             if (validarMail != null && validarRut != null){
                 throw new UsuarioExistenteException(Constant.ERROR_USUARIO_CREADO);
             }
-
+        }catch (EdadNoPermitidaException ex) {
+            ex.printStackTrace();
+            throw new EdadNoPermitidaException(ex.getMessage());
         }catch (MailExisteException ex) {
             ex.printStackTrace();
             throw new MailExisteException(ex.getMessage());
