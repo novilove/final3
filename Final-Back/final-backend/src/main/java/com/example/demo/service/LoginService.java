@@ -10,3 +10,6 @@ public interface LoginService {
     Login crearUsuario(DtoLogin logins) throws Exception;
     Boolean eliminarUsuario(Long id) throws Exception;
 }
+/*
+Giovanna Tapia
+ */

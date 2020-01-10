@@ -6,5 +6,7 @@ public class EdadNoPermitidaException extends Exception {
     public EdadNoPermitidaException(String message){
         super(message);
     }
-
+/*
+Giovanna Tapia
+ */
 }
