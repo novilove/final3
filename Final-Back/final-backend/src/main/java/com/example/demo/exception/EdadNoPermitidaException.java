@@ -1,9 +1,9 @@
 package com.example.demo.exception;
 
-public class UsuarioExistenteException extends Exception {
+public class EdadNoPermitidaException extends Exception {
     private String message;
 
-    public UsuarioExistenteException(String message){
+    public EdadNoPermitidaException(String message){
         super(message);
     }
 /*
