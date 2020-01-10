@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SpeakRepository extends JpaRepository<Speaker,Long> {
-   Speaker findByid(Long id);
+public interface SpeakerRepository extends JpaRepository <Speaker, Long> {
+    Speaker findById(long Id);
 }

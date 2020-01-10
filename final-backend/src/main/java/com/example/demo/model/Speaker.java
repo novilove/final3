@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Speaker {
 
     @Id
-    @Column(name="ID",nullable = false)
+    @Column(name="ID",nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -16,8 +16,8 @@ public class Speaker {
     @Column(name="DESCRIPTION", nullable = false)
     private String description;
 
-    @Column(name="CHANGE", nullable = false)
-    private String change;
+    @Column(name="CHARGE", nullable = false)
+    private String charge;
 
     @ManyToOne
     @JoinColumn(name = "FK_COUNTRY", nullable = false)
@@ -48,11 +48,11 @@ public class Speaker {
     }
 
     public String getChange() {
-        return change;
+        return charge;
     }
 
     public void setChange(String change) {
-        this.change = change;
+        this.charge = change;
     }
 
     public Country getCountry() {
