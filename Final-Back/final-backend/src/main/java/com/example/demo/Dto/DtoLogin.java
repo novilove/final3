@@ -38,9 +38,7 @@ public class DtoLogin {
         this.rutDto = rutDto;
     }
 
-    public Integer getAgeDto() {
-        return ageDto;
-    }
+    public Integer getAgeDto() { return ageDto; }
 
     public void setAgeDto(Integer ageDto) {
         this.ageDto = ageDto;
@@ -85,4 +83,5 @@ public class DtoLogin {
     public void setTypeDto(String typeDto) {
         this.typeDto = typeDto;
     }
+
 }
