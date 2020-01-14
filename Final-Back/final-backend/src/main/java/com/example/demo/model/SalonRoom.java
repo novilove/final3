@@ -18,6 +18,7 @@ public class SalonRoom {
     private Integer capacity;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID_PLACE")
     private Place place;
 
     public Long getId() {

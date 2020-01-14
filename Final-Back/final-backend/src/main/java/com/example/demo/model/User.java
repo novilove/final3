@@ -40,12 +40,13 @@ public class User {
     @JoinColumn(name = "FK_COUNTRY", nullable = false)
     private Country country;
 
-/*
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "users",fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_USER_EVENTS")
     private List<UserEvent> userEventList;
 
-        public List<UserEvent> getUserEventList() {
+    public List<UserEvent> getUserEventList() {
         return userEventList;
     }
 
@@ -53,7 +54,7 @@ public class User {
         this.userEventList = userEventList;
     }
 
- */
+
 
 
     public Long getId() {

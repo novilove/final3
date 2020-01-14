@@ -9,21 +9,20 @@ public class Event {
 
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "DURATION")
+    @Column(name = "DURATION", nullable = false)
     private Integer duration;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = false)
     private String description;
 
-    @Column(name = "TIME")
-    private String time;
-
     @Column(name = "DATE")
+    @Temporal(TemporalType.TIMESTAMP)
     private String date;
 
     @Column(name = "CAPACITY")
@@ -37,14 +36,16 @@ public class Event {
     @JoinColumn(name = "FK_CATEGORY", nullable = false)
     private Category fkCategory;
 
-/*
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
+    @JoinColumn(name = "FK_TALK", nullable = false, updatable = false)
     private List<Talk> talkList;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
+    @JoinColumn(name = "FK_USEREVENTS", nullable = false, updatable = false)
     private List<UserEvent> userEventList;
 
-        public List<Talk> getTalkList() {
+    public List<Talk> getTalkList() {
         return talkList;
     }
 
@@ -59,7 +60,7 @@ public class Event {
     public void setUserEventList(List<UserEvent> userEventList) {
         this.userEventList = userEventList;
     }
- */
+
 
     public Long getId() {
         return id;
@@ -93,13 +94,7 @@ public class Event {
         this.description = description;
     }
 
-    public String getTime() {
-        return time;
-    }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
 
     public String getDate() {
         return date;

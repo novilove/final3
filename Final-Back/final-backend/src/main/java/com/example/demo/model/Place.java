@@ -26,9 +26,11 @@ public class Place {
     private Country country;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
+    @JoinColumn(name = "ID_SALON")
     private List<SalonRoom> salonRoomList;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
+    @JoinColumn(name = "ID_EVENT")
     private List<Event> eventList;
 
     public Long getId() {

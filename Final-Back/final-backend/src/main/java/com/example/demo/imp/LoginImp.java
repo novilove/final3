@@ -9,6 +9,7 @@ import com.example.demo.exception.UsuarioExistenteException;
 import com.example.demo.model.Country;
 import com.example.demo.model.Login;
 import com.example.demo.model.User;
+import com.example.demo.model.UserEvent;
 import com.example.demo.repository.CountryRepository;
 import com.example.demo.repository.LoginRepository;
 import com.example.demo.repository.UserRepository;
@@ -19,7 +20,10 @@ import com.example.demo.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.TreeMap;
 
 
 @Service
@@ -36,7 +40,7 @@ public class LoginImp implements LoginService {
 
     @Override
     public Login crearUsuario(DtoLogin dtoLogin) throws Exception {
-
+        List<UserEvent> go = new ArrayList<>();
         Login log = null;
         User use = null;
         Country cou = null;
@@ -68,6 +72,8 @@ public class LoginImp implements LoginService {
                 use.setType(dtoLogin.getTypeDto());
                 use.setCountry(cou);
                 use.setLogin(log);
+                use.setUserEventList(go);
+
                 use=userRepo.save(use);
 
                 log.setUser(use);
@@ -92,17 +98,18 @@ public class LoginImp implements LoginService {
                 use.setType(dtoLogin.getTypeDto());
                 use.setCountry(cou);
                 use.setLogin(log);
+                use.setUserEventList(go);
                 use=userRepo.save(use);
 
                 log.setUser(use);
                 return log;
             }
-            if (validarMail != null && validarRut == null) {
-                throw new MailExisteException(Constant.ERROR_MAIL_EXISTE);
+        if (validarMail != null && validarRut == null) {
+            throw new MailExisteException(Constant.ERROR_MAIL_EXISTE);
         }
-            if (validarMail != null && validarRut != null){
-                throw new UsuarioExistenteException(Constant.ERROR_USUARIO_CREADO);
-            }
+        else {
+            throw new UsuarioExistenteException(Constant.ERROR_USUARIO_CREADO);
+        }
         }catch (EdadNoPermitidaException ex) {
             ex.printStackTrace();
             throw new EdadNoPermitidaException(ex.getMessage());
@@ -118,7 +125,6 @@ public class LoginImp implements LoginService {
         }
 
 
-        return log;
     }
 
     @Override
@@ -147,5 +153,6 @@ public class LoginImp implements LoginService {
     }
 /*
 Giovanna Tapia
+giovannatss27@gmail.com
  */
 }

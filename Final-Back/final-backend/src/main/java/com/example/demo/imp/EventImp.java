@@ -32,14 +32,14 @@ public class EventImp implements EventService {
 
         try{
             Event ValidateName = everepo.findByName(events.getNameDto());
-            Place ValidateCity = plarepo.findByCity(events.getNamePlaceDto());
-            Category ValidateCat = catrepo.findByCat(events.getNameCategotyDto());
+            Place ValidateCity = plarepo.findByName(events.getNamePlaceDto());
+            Category ValidateCat = catrepo.findByName(events.getNameCategotyDto());
             if(ValidateName == null && ValidateCity == null && ValidateCat == null) {
                 eve = new Event();
                 eve.setName(events.getNameDto());
                 eve.setDuration(events.getDurationDto());
                 eve.setDescription(events.getDescriptionDto());
-                eve.setTime(events.getTimeDto());
+
                 eve.setDate(events.getDateDto());
                 eve.setCapacity(events.getCapacityDto());
                 eve = everepo.save(eve);
@@ -59,7 +59,7 @@ public class EventImp implements EventService {
                 eve.setName(events.getNameDto());
                 eve.setDuration(events.getDurationDto());
                 eve.setDescription(events.getDescriptionDto());
-                eve.setTime(events.getTimeDto());
+
                 eve.setDate(events.getDateDto());
                 eve.setCapacity(events.getCapacityDto());
                 eve = everepo.save(eve);

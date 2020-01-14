@@ -4,7 +4,6 @@ public class DtoEvent {
     private String nameDto;
     private Integer durationDto;
     private String descriptionDto;
-    private String timeDto;
     private String dateDto;
     private String adressDto;
     private Integer capacityDto;
@@ -52,13 +51,6 @@ public class DtoEvent {
         this.descriptionDto = descriptionDto;
     }
 
-    public String getTimeDto() {
-        return timeDto;
-    }
-
-    public void setTimeDto(String timeDto) {
-        this.timeDto = timeDto;
-    }
 
     public String getDateDto() {
         return dateDto;
