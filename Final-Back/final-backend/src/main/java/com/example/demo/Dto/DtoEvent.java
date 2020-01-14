@@ -1,8 +1,10 @@
 package com.example.demo.Dto;
 
 public class DtoEvent {
-    private String nameDto;
-    private Integer durationDto;
+    private String nameEventDto;
+    private Integer durationEventDto;
+
+
     private String descriptionDto;
     private String dateDto;
     private String adressDto;
@@ -11,22 +13,8 @@ public class DtoEvent {
     private String namePlaceDto;
     private String nameCategotyDto;
 
-    public String getAdressDto() {
-        return adressDto;
-    }
 
-    public void setAdressDto(String adressDto) {
-        this.adressDto = adressDto;
-    }
-
-    public String getCityDto() {
-        return cityDto;
-    }
-
-    public void setCityDto(String cityDto) {
-        this.cityDto = cityDto;
-    }
-
+    /*
     public String getNameDto() {
         return nameDto;
     }
@@ -52,35 +40,7 @@ public class DtoEvent {
     }
 
 
-    public String getDateDto() {
-        return dateDto;
-    }
 
-    public void setDateDto(String dateDto) {
-        this.dateDto = dateDto;
-    }
+     */
 
-    public Integer getCapacityDto() {
-        return capacityDto;
-    }
-
-    public void setCapacityDto(Integer capacityDto) {
-        this.capacityDto = capacityDto;
-    }
-
-    public String getNamePlaceDto() {
-        return namePlaceDto;
-    }
-
-    public void setNamePlaceDto(String namePlaceDto) {
-        this.namePlaceDto = namePlaceDto;
-    }
-
-    public String getNameCategotyDto() {
-        return nameCategotyDto;
-    }
-
-    public void setNameCategotyDto(String nameCategotyDto) {
-        this.nameCategotyDto = nameCategotyDto;
-    }
 }

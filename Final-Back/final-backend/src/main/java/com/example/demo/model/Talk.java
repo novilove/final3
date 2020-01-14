@@ -20,16 +20,16 @@ public class Talk {
     @Column(name = "DURATION",nullable = false)
     private Integer duration;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_EVENT", nullable = false)
     private Event event;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_SPEAKER", nullable = false)
     private Speaker speakers;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_SALON_ROOM", nullable = false)
     private SalonRoom  salon;
 

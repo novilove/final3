@@ -7,6 +7,7 @@ import com.example.demo.exception.NoEncontradoException;
 import com.example.demo.model.Category;
 import com.example.demo.model.Event;
 import com.example.demo.model.Place;
+import com.example.demo.model.Talk;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.EventRepository;
 import com.example.demo.repository.PlaceRepository;
@@ -29,6 +30,7 @@ public class EventImp implements EventService {
         Event eve = null;
         Place pla = null;
         Category cat = null;
+        Talk tals = null;
 
         try{
             Event ValidateName = everepo.findByName(events.getNameDto());

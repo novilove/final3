@@ -1,10 +1,10 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.UserEvent;
+import com.example.demo.model.Speaker;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MyEventsRepository  extends JpaRepository<UserEvent, Long> {
-    UserEvent findByid(Long id);
+public interface SpeakerRepository extends JpaRepository<Speaker,Long> {
+   Speaker findByid(Long id);
 }

@@ -28,15 +28,15 @@ public class Event {
     @Column(name = "CAPACITY")
     private Integer capacity;
 
-    @ManyToOne
-    @JoinColumn(name = "FK_PLACES", nullable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID_PLACE")
     private Place place;
 
     @OneToOne
     @JoinColumn(name = "FK_CATEGORY", nullable = false)
     private Category fkCategory;
-
 /*
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     @JoinColumn(name = "FK_TALK", nullable = false, updatable = false)
     private List<Talk> talkList;
@@ -62,7 +62,9 @@ public class Event {
     }
 
 
+
  */
+
 
     public Long getId() {
         return id;

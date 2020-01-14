@@ -21,10 +21,11 @@ public class Place {
     @Column(name = "NAME",nullable = false)
     private String name;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_COUNTRY", nullable = false)
     private Country country;
 
+    /*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
     @JoinColumn(name = "ID_SALON")
     private List<SalonRoom> salonRoomList;
@@ -33,6 +34,23 @@ public class Place {
     @JoinColumn(name = "ID_EVENT")
     private List<Event> eventList;
 
+    public List<SalonRoom> getSalonRoomList() {
+        return salonRoomList;
+    }
+
+    public void setSalonRoomList(List<SalonRoom> salonRoomList) {
+        this.salonRoomList = salonRoomList;
+    }
+
+    public List<Event> getEventList() {
+        return eventList;
+    }
+
+    public void setEventList(List<Event> eventList) {
+        this.eventList = eventList;
+    }
+
+     */
     public Long getId() {
         return id;
     }
@@ -73,19 +91,5 @@ public class Place {
         this.country = country;
     }
 
-    public List<SalonRoom> getSalonRoomList() {
-        return salonRoomList;
-    }
 
-    public void setSalonRoomList(List<SalonRoom> salonRoomList) {
-        this.salonRoomList = salonRoomList;
-    }
-
-    public List<Event> getEventList() {
-        return eventList;
-    }
-
-    public void setEventList(List<Event> eventList) {
-        this.eventList = eventList;
-    }
 }
