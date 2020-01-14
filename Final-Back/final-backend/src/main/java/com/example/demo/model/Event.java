@@ -36,7 +36,7 @@ public class Event {
     @JoinColumn(name = "FK_CATEGORY", nullable = false)
     private Category fkCategory;
 
-
+/*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     @JoinColumn(name = "FK_TALK", nullable = false, updatable = false)
     private List<Talk> talkList;
@@ -61,6 +61,8 @@ public class Event {
         this.userEventList = userEventList;
     }
 
+
+ */
 
     public Long getId() {
         return id;

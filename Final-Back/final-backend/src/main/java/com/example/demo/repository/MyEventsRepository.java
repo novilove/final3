@@ -1,18 +1,10 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.User;
+import com.example.demo.model.UserEvent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
-
-
 @Repository
-public interface UserRepository  extends JpaRepository<User, Long> {
-
-    User findByRut(String rut);
-
-
-
-
+public interface MyEventsRepository  extends JpaRepository<UserEvent, Long> {
+    UserEvent findByid(Long id);
 }

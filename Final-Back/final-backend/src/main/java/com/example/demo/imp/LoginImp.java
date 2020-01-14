@@ -40,7 +40,7 @@ public class LoginImp implements LoginService {
 
     @Override
     public Login crearUsuario(DtoLogin dtoLogin) throws Exception {
-        List<UserEvent> go = new ArrayList<>();
+
         Login log = null;
         User use = null;
         Country cou = null;
@@ -72,7 +72,7 @@ public class LoginImp implements LoginService {
                 use.setType(dtoLogin.getTypeDto());
                 use.setCountry(cou);
                 use.setLogin(log);
-                use.setUserEventList(go);
+
 
                 use=userRepo.save(use);
 
@@ -98,7 +98,7 @@ public class LoginImp implements LoginService {
                 use.setType(dtoLogin.getTypeDto());
                 use.setCountry(cou);
                 use.setLogin(log);
-                use.setUserEventList(go);
+
                 use=userRepo.save(use);
 
                 log.setUser(use);

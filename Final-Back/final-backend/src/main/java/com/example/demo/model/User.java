@@ -40,7 +40,7 @@ public class User {
     @JoinColumn(name = "FK_COUNTRY", nullable = false)
     private Country country;
 
-
+/*
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "users",fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_USER_EVENTS")
@@ -56,6 +56,8 @@ public class User {
 
 
 
+
+ */
 
     public Long getId() {
         return id;

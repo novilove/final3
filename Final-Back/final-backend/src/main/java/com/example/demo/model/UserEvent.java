@@ -23,6 +23,8 @@ public class UserEvent {
 
 
 
+
+
     public Long getId() {
         return id;
     }
