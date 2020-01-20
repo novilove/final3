@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UserEventService {
     UserEvent go(DtoUserEvent nombre) throws Exception;
-
+    UserEvent notGo(DtoUserEvent nombre) throws Exception;
 
 
 }

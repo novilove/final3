@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TalkImp implements TalksServices {
+
     @Autowired
     private TalkRepository talkRepo;
     @Autowired
@@ -22,8 +23,10 @@ public class TalkImp implements TalksServices {
 
 
 
+
     @Override
     public Login crearteTalk(DtoTalks talks) throws Exception {
+<<<<<<< HEAD
         Talk tk = null;
         Speaker pk = null;
         Category cat = null;
@@ -44,6 +47,13 @@ public class TalkImp implements TalksServices {
         }catch (Exception e){
 
         }
+=======
+
+        Place pla = null;
+        SalonRoom sr = null;
+        Category cat = null;
+
+>>>>>>> 9c01049e35648c9f2087b865c60cd3c62615f175
         return null;
     }
 
