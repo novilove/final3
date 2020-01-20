@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SpeakerRepository extends JpaRepository<Speaker,Long> {
    Speaker findByid(Long id);
+   Speaker findByName(String name);
 }
