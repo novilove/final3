@@ -1,16 +1,10 @@
 package com.example.demo.imp;
 
 import com.example.demo.Dto.DtoEvent;
-
 import com.example.demo.exception.EventExistException;
 import com.example.demo.exception.NoEncontradoException;
-import com.example.demo.model.Category;
 import com.example.demo.model.Event;
-import com.example.demo.model.Place;
-import com.example.demo.model.Talk;
-import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.EventRepository;
-import com.example.demo.repository.PlaceRepository;
 import com.example.demo.service.EventService;
 import com.example.demo.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,62 +14,28 @@ import org.springframework.stereotype.Service;
 public class EventImp implements EventService {
     @Autowired
     private EventRepository everepo;
-    @Autowired
-    private PlaceRepository plarepo;
-    @Autowired
-    private CategoryRepository catrepo;
+
 
     @Override
     public Event createEvent(DtoEvent events) throws Exception {
+
         Event eve = null;
-        Place pla = null;
-        Category cat = null;
-        Talk tals = null;
 
         try{
-            Event ValidateName = everepo.findByName(events.getNameDto());
-            Place ValidateCity = plarepo.findByName(events.getNamePlaceDto());
-            Category ValidateCat = catrepo.findByName(events.getNameCategotyDto());
-            if(ValidateName == null && ValidateCity == null && ValidateCat == null) {
+            Event ValidateName = everepo.findByName(events.getNameEventDto());
+
+            if(ValidateName == null ) {
                 eve = new Event();
-                eve.setName(events.getNameDto());
-                eve.setDuration(events.getDurationDto());
-                eve.setDescription(events.getDescriptionDto());
+                eve.setName(events.getNameEventDto());
+                eve.setDescription(events.getDescriptionEventDto());
+                eve.setDate(events.getDateEventDto());
 
-                eve.setDate(events.getDateDto());
-                eve.setCapacity(events.getCapacityDto());
                 eve = everepo.save(eve);
-
-                pla = new Place();
-                pla.setName(events.getNamePlaceDto());
-                pla.setCity(events.getCityDto());
-                pla.setAdress(events.getAdressDto());
-                pla = plarepo.save(pla);
-
-                cat = new Category();
-                cat.setName(events.getNameDto());
-                cat = catrepo.save(cat);
-            }
-            if(ValidateName == null && ValidateCity == null && ValidateCat != null) {
-                eve = new Event();
-                eve.setName(events.getNameDto());
-                eve.setDuration(events.getDurationDto());
-                eve.setDescription(events.getDescriptionDto());
-
-                eve.setDate(events.getDateDto());
-                eve.setCapacity(events.getCapacityDto());
-                eve = everepo.save(eve);
-
-                pla = new Place();
-                pla.setName(events.getNamePlaceDto());
-                pla.setCity(events.getCityDto());
-                pla.setAdress(events.getAdressDto());
-                pla = plarepo.save(pla);
-
-                cat = ValidateCat;
                 return eve;
 
             }
+
+
             if (ValidateName != null) {
                 throw new EventExistException(Constant.ERROR_EVENTO);
             }
@@ -88,6 +48,8 @@ public class EventImp implements EventService {
             throw new Exception(Constant.ERROR_SISTEMA);
 
         }
+
+
         return eve;
     }
 

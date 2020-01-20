@@ -22,49 +22,8 @@ public class Event {
     private String description;
 
     @Column(name = "DATE")
-    @Temporal(TemporalType.TIMESTAMP)
     private String date;
-
-    @Column(name = "CAPACITY")
-    private Integer capacity;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID_PLACE")
-    private Place place;
-
-    @OneToOne
-    @JoinColumn(name = "FK_CATEGORY", nullable = false)
-    private Category fkCategory;
-/*
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
-    @JoinColumn(name = "FK_TALK", nullable = false, updatable = false)
-    private List<Talk> talkList;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
-    @JoinColumn(name = "FK_USEREVENTS", nullable = false, updatable = false)
-    private List<UserEvent> userEventList;
-
-    public List<Talk> getTalkList() {
-        return talkList;
-    }
-
-    public void setTalkList(List<Talk> talkList) {
-        this.talkList = talkList;
-    }
-
-    public List<UserEvent> getUserEventList() {
-        return userEventList;
-    }
-
-    public void setUserEventList(List<UserEvent> userEventList) {
-        this.userEventList = userEventList;
-    }
-
-
-
- */
-
+//@Temporal(TemporalType.TIMESTAMP)
 
     public Long getId() {
         return id;
@@ -98,8 +57,6 @@ public class Event {
         this.description = description;
     }
 
-
-
     public String getDate() {
         return date;
     }
@@ -107,33 +64,5 @@ public class Event {
     public void setDate(String date) {
         this.date = date;
     }
-
-    public Integer getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
-    }
-
-    public Place getPlace() {
-        return place;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
-    }
-
-    public Category getFkCategory() {
-        return fkCategory;
-    }
-
-    public void setFkCategory(Category fkCategory) {
-        this.fkCategory = fkCategory;
-    }
-
-
-
-
 }
 

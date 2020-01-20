@@ -11,46 +11,21 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "CITY",nullable = false)
-    private String city;
-
+    @Column(name = "NAME",nullable = false)
+    private String name;
 
     @Column(name = "ADRESS",nullable = false)
     private String adress;
 
-    @Column(name = "NAME",nullable = false)
-    private String name;
+    @Column(name = "CITY",nullable = false)
+    private String city;
+
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_COUNTRY", nullable = false)
     private Country country;
 
-    /*
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
-    @JoinColumn(name = "ID_SALON")
-    private List<SalonRoom> salonRoomList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "place")
-    @JoinColumn(name = "ID_EVENT")
-    private List<Event> eventList;
-
-    public List<SalonRoom> getSalonRoomList() {
-        return salonRoomList;
-    }
-
-    public void setSalonRoomList(List<SalonRoom> salonRoomList) {
-        this.salonRoomList = salonRoomList;
-    }
-
-    public List<Event> getEventList() {
-        return eventList;
-    }
-
-    public void setEventList(List<Event> eventList) {
-        this.eventList = eventList;
-    }
-
-     */
     public Long getId() {
         return id;
     }

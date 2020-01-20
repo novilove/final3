@@ -1,7 +1,8 @@
 package com.example.demo.Dto;
 
 public class DtoUserEvent {
-    private Long idDto;
+
+    private Long idUserDto;
     private String nameEventDto;
 
 }

@@ -16,8 +16,8 @@ public class Speaker {
     @Column(name="DESCRIPTION", nullable = false)
     private String description;
 
-    @Column(name="CHANGE", nullable = false)
-    private String change;
+    @Column(name="POSITION", nullable = false)
+    private String position;
 
     @ManyToOne
     @JoinColumn(name = "FK_COUNTRY", nullable = false)
@@ -47,12 +47,12 @@ public class Speaker {
         this.description = description;
     }
 
-    public String getChange() {
-        return change;
+    public String getPosition() {
+        return position;
     }
 
-    public void setChange(String change) {
-        this.change = change;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public Country getCountry() {

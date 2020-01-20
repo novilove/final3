@@ -1,46 +1,42 @@
 package com.example.demo.Dto;
 
 public class DtoEvent {
+
+    //event
     private String nameEventDto;
     private Integer durationEventDto;
+    private String descriptionEventDto;
+    private String dateEventDto;
 
-
-    private String descriptionDto;
-    private String dateDto;
-    private String adressDto;
-    private Integer capacityDto;
-    private String cityDto;
-    private String namePlaceDto;
-    private String nameCategotyDto;
-
-
-    /*
-    public String getNameDto() {
-        return nameDto;
+    public String getNameEventDto() {
+        return nameEventDto;
     }
 
-    public void setNameDto(String nameDto) {
-        this.nameDto = nameDto;
+    public void setNameEventDto(String nameEventDto) {
+        this.nameEventDto = nameEventDto;
     }
 
-    public Integer getDurationDto() {
-        return durationDto;
+    public Integer getDurationEventDto() {
+        return durationEventDto;
     }
 
-    public void setDurationDto(Integer durationDto) {
-        this.durationDto = durationDto;
+    public void setDurationEventDto(Integer durationEventDto) {
+        this.durationEventDto = durationEventDto;
     }
 
-    public String getDescriptionDto() {
-        return descriptionDto;
+    public String getDescriptionEventDto() {
+        return descriptionEventDto;
     }
 
-    public void setDescriptionDto(String descriptionDto) {
-        this.descriptionDto = descriptionDto;
+    public void setDescriptionEventDto(String descriptionEventDto) {
+        this.descriptionEventDto = descriptionEventDto;
     }
 
+    public String getDateEventDto() {
+        return dateEventDto;
+    }
 
-
-     */
-
+    public void setDateEventDto(String dateEventDto) {
+        this.dateEventDto = dateEventDto;
+    }
 }

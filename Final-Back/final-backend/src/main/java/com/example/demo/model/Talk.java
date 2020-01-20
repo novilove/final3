@@ -28,6 +28,10 @@ public class Talk {
     @JoinColumn(name = "FK_SPEAKER", nullable = false)
     private Speaker speakers;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "FK_CATEGORY", nullable = false)
+    private Category categories;
+
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_SALON_ROOM", nullable = false)

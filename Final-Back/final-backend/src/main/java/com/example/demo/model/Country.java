@@ -14,42 +14,6 @@ public class Country {
     @Column(name="NAME",nullable = false)
     private String name;
 
-/*
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
-
-    private List<Place> placeList;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
-    private List<Speaker> speakerList;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
-    private List<User> userList;
-
- public List<Place> getPlaceList() {
-        return placeList;
-    }
-
-    public void setPlaceList(List<Place> placeList) {
-        this.placeList = placeList;
-    }
-
-    public List<Speaker> getSpeakerList() {
-        return speakerList;
-    }
-
-    public void setSpeakerList(List<Speaker> speakerList) {
-        this.speakerList = speakerList;
-    }
-
-    public List<User> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
-    }
-
- */
     public long getId() {
         return id;
     }

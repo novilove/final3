@@ -19,7 +19,7 @@ public class SalonRoom {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_PLACE")
-    private Place place;
+    private Place places;
 
     public Long getId() {
         return id;
@@ -45,11 +45,11 @@ public class SalonRoom {
         this.capacity = capacity;
     }
 
-    public Place getPlace() {
-        return place;
+    public Place getPlaces() {
+        return places;
     }
 
-    public void setPlace(Place place) {
-        this.place = place;
+    public void setPlaces(Place places) {
+        this.places = places;
     }
 }
