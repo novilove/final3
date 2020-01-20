@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TalkRepository extends JpaRepository<Talk,Long> {
     Talk findByid(Long id);
+    Talk findByName(String name);
 }
