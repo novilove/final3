@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TalkImp implements TalksServices {
+
     @Autowired
     private PlaceRepository placeRepo;
     @Autowired
@@ -22,11 +23,14 @@ public class TalkImp implements TalksServices {
     private CategoryRepository catRepo;
 
 
+
     @Override
     public Login crearteTalk(DtoTalks talks) throws Exception {
+
         Place pla = null;
         SalonRoom sr = null;
         Category cat = null;
+
         return null;
     }
 
