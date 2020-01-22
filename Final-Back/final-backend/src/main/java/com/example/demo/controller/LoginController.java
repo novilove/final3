@@ -48,6 +48,7 @@ public class LoginController {
         }
         return rs;
     }
+
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
     public ResponseEntity<Object> eliminarUsuario(@PathVariable Long id){
         ResponseEntity<Object> rs = null;
