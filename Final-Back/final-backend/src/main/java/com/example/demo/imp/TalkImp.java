@@ -4,6 +4,7 @@ import com.example.demo.Dto.DtoTalks;
 import com.example.demo.model.*;
 import com.example.demo.repository.*;
 import com.example.demo.service.TalksServices;
+import com.example.demo.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,18 +63,14 @@ public class TalkImp implements TalksServices {
                 tk.setSalon(sr);
 
             }
-            if(validateName!=null && validateSpeaker==null && validateCategory==null && validateSalon==null && validateEvent==null){
-                eve = new Event();
-                eve.setName(talks.getNameEventsDto());
+            if(validateName==null && validateSpeaker!=null && validateCategory!=null && validateSalon!=null && validateEvent!=null){
+                eve = validateEvent;
 
-                pk = new Speaker();
-                pk.setName(talks.getNameSpeakerDto());
+                pk = validateSpeaker;
 
-                cat = new Category();
-                cat.setName(talks.getNameCategoryDto());
+                cat = validateCategory;
 
-                sr = new SalonRoom();
-                sr.setName(talks.getNameCategoryDto());
+                sr = validateSalon;
 
                 tk = new Talk();
                 tk.setName(talks.getNameTalkDto());
@@ -83,11 +80,11 @@ public class TalkImp implements TalksServices {
                 tk.setSpeakers(pk);
                 tk.setCategories(cat);
                 tk.setSalon(sr);
-
             }
 
         }catch (Exception e){
-
+            e.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
         }
         return null;
     }
