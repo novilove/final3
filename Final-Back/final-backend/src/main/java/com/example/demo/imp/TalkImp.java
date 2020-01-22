@@ -63,6 +63,8 @@ public class TalkImp implements TalksServices {
                 tk.setCategories(cat);
                 tk.setSalon(sr);
 
+                tk = talkRepo.save(tk);
+
             }
             if(validateName==null && validateSpeaker!=null && validateCategory!=null && validateSalon!=null && validateEvent!=null){
                 eve = validateEvent;
@@ -81,6 +83,8 @@ public class TalkImp implements TalksServices {
                 tk.setSpeakers(pk);
                 tk.setCategories(cat);
                 tk.setSalon(sr);
+
+                tk = talkRepo.save(tk);
             }
 
         }catch (Exception e){
