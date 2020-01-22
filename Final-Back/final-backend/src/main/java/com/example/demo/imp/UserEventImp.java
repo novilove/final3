@@ -23,4 +23,9 @@ public class UserEventImp implements UserEventService {
         }
         return null;
     }
+
+    @Override
+    public UserEvent notGo(DtoUserEvent nombre) throws Exception {
+        return null;
+    }
 }
