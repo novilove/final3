@@ -92,4 +92,12 @@ public class Talk {
     public void setSalon(SalonRoom salon) {
         this.salon = salon;
     }
+
+    public Category getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Category categories) {
+        this.categories = categories;
+    }
 }
