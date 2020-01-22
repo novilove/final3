@@ -1,6 +1,7 @@
 package com.example.demo.imp;
 
 import com.example.demo.Dto.DtoTalks;
+import com.example.demo.exception.NoEncontradoException;
 import com.example.demo.model.*;
 import com.example.demo.repository.*;
 import com.example.demo.service.TalksServices;
@@ -91,6 +92,24 @@ public class TalkImp implements TalksServices {
 
     @Override
     public Boolean deleteTalk(Long id) throws Exception {
-        return null;
+        Boolean delete = false;
+        try{
+            Talk searchTalk = talkRepo.findByid(id);
+            if(searchTalk != null){
+                talkRepo.delete(searchTalk);
+                return delete = true;
+            }
+            if(searchTalk == null){
+                throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
+            }
+        }catch (NoEncontradoException ex){
+            ex.printStackTrace();
+            throw new NoEncontradoException(ex.getMessage());
+
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+        return delete;
     }
 }
