@@ -15,7 +15,15 @@ public class DtoTalks {
 
     //salonRoom
     private String nameSalonRoomDto;
+    private Integer capacitySalonRoomDto;
 
+    //place
+    private String namePlaceDto;
+    private String adressPlaceDto;
+    private String cityPlaceDto;
+
+    //Country
+    private String nameCountryDto;
 
     //event
     private String nameEventsDto;
@@ -74,5 +82,45 @@ public class DtoTalks {
 
     public void setNameEventsDto(String nameEventsDto) {
         this.nameEventsDto = nameEventsDto;
+    }
+
+    public Integer getCapacitySalonRoomDto() {
+        return capacitySalonRoomDto;
+    }
+
+    public void setCapacitySalonRoomDto(Integer capacitySalonRoomDto) {
+        this.capacitySalonRoomDto = capacitySalonRoomDto;
+    }
+
+    public String getNamePlaceDto() {
+        return namePlaceDto;
+    }
+
+    public void setNamePlaceDto(String namePlaceDto) {
+        this.namePlaceDto = namePlaceDto;
+    }
+
+    public String getAdressPlaceDto() {
+        return adressPlaceDto;
+    }
+
+    public void setAdressPlaceDto(String adressPlaceDto) {
+        this.adressPlaceDto = adressPlaceDto;
+    }
+
+    public String getCityPlaceDto() {
+        return cityPlaceDto;
+    }
+
+    public void setCityPlaceDto(String cityPlaceDto) {
+        this.cityPlaceDto = cityPlaceDto;
+    }
+
+    public String getNameCountryDto() {
+        return nameCountryDto;
+    }
+
+    public void setNameCountryDto(String nameCountryDto) {
+        this.nameCountryDto = nameCountryDto;
     }
 }
