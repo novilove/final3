@@ -7,6 +7,6 @@ public class Constant {
     public static final String ERROR_NO_ENCONTRADO = "ERROR DATO NO ENCONTRADO";
     public static final String ERROR_EDAD = "ERROR LA EDAD SE ENCUETRA FUERA DE RANGO PERMITIDO";
     public static final String ERROR_EVENTO = "ERROR EVENTO YA CREADO";
-
+    public static final String ERROR_INCORRECTO = "ERROR USER O PASS INCORRECT";
 
 }

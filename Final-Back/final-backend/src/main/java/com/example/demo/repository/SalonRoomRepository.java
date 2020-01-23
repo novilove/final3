@@ -9,3 +9,7 @@ public interface SalonRoomRepository extends JpaRepository<SalonRoom, Long> {
     SalonRoom findByid(SalonRoom salones);
     SalonRoom findByName(String name);
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

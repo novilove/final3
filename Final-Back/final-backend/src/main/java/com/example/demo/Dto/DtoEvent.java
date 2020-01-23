@@ -1,12 +1,14 @@
 package com.example.demo.Dto;
 
+import java.util.Date;
+
 public class DtoEvent {
 
     //event
     private String nameEventDto;
 
     private String descriptionEventDto;
-    private String dateEventDto;
+    private Date dateEventDto;
 
     public String getNameEventDto() {
         return nameEventDto;
@@ -26,11 +28,15 @@ public class DtoEvent {
         this.descriptionEventDto = descriptionEventDto;
     }
 
-    public String getDateEventDto() {
+    public Date getDateEventDto() {
         return dateEventDto;
     }
 
-    public void setDateEventDto(String dateEventDto) {
+    public void setDateEventDto(Date dateEventDto) {
         this.dateEventDto = dateEventDto;
     }
+    /*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
 }

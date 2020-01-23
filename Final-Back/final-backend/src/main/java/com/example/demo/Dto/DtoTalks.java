@@ -16,6 +16,7 @@ public class DtoTalks {
     //salonRoom
     private String nameSalonRoomDto;
 
+
     //event
     private String nameEventsDto;
 

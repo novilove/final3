@@ -2,10 +2,7 @@ package com.example.demo.imp;
 
 
 import com.example.demo.Dto.DtoLogin;
-import com.example.demo.exception.EdadNoPermitidaException;
-import com.example.demo.exception.MailExisteException;
-import com.example.demo.exception.NoEncontradoException;
-import com.example.demo.exception.UsuarioExistenteException;
+import com.example.demo.exception.*;
 import com.example.demo.model.Country;
 import com.example.demo.model.Login;
 import com.example.demo.model.User;
@@ -39,7 +36,7 @@ public class LoginImp implements LoginService {
     private CountryRepository countRepo;
 
     @Override
-    public Login crearUsuario(DtoLogin dtoLogin) throws Exception {
+    public Login createUser(DtoLogin dtoLogin) throws Exception {
 
         Login log = null;
         User use = null;
@@ -57,11 +54,11 @@ public class LoginImp implements LoginService {
                 log = new Login();
                 log.setEmail(dtoLogin.getEmailDto());
                 log.setPassword(dtoLogin.getPasswordDto());
-                log = loginRepo.save(log);
+                loginRepo.save(log);
 
                 cou = new Country();
                 cou.setName(dtoLogin.getCountryDto());
-                cou = countRepo.save(cou);
+               countRepo.save(cou);
 
                 use = new User();
                 use.setRut(dtoLogin.getRutDto());
@@ -74,7 +71,7 @@ public class LoginImp implements LoginService {
                 use.setLogin(log);
 
 
-                use=userRepo.save(use);
+                userRepo.save(use);
 
                 log.setUser(use);
                 return log;
@@ -85,7 +82,7 @@ public class LoginImp implements LoginService {
                 log = new Login();
                 log.setEmail(dtoLogin.getEmailDto());
                 log.setPassword(dtoLogin.getPasswordDto());
-                log = loginRepo.save(log);
+                loginRepo.save(log);
 
                 cou = validarPais;
 
@@ -99,7 +96,7 @@ public class LoginImp implements LoginService {
                 use.setCountry(cou);
                 use.setLogin(log);
 
-                use=userRepo.save(use);
+                userRepo.save(use);
 
                 log.setUser(use);
                 return log;
@@ -128,26 +125,34 @@ public class LoginImp implements LoginService {
     }
 
     @Override
-    public Boolean eliminarUsuario(Long id) throws Exception {
+    public Boolean deleteUser(Long id, String pass) throws Exception {
         Boolean elimi = false;
         try {
 
             Optional<User> buscarUser = userRepo.findById(id);
             Login buscarMail =  loginRepo.findByEmail(buscarUser.get().getLogin().getEmail());
-            if (buscarMail != null) {
+
+            if (buscarMail != null && buscarMail.getPassword()==pass) {
+
                 loginRepo.delete(buscarMail);
                 userRepo.delete(buscarUser.get());
                 return elimi = true;
             }
+            if (buscarMail != null && buscarMail.getPassword()!=pass) {
+                throw new IncorrectException(Constant.ERROR_INCORRECTO);
+            }
             if(buscarMail== null){
                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
             }
-
+        }catch (IncorrectException ex) {
+            ex.printStackTrace();
+            throw new IncorrectException(ex.getMessage());
         }catch (NoEncontradoException ex) {
             ex.printStackTrace();
             throw new NoEncontradoException(ex.getMessage());
         }catch (Exception ex){
             ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
         }
         return elimi;
     }

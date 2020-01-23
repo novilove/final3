@@ -26,11 +26,11 @@ public class LoginController {
     private LoginImp imp;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Object> crearUsuaio(@RequestBody DtoLogin dtoLogin) {
+    public ResponseEntity<Object> createUser(@RequestBody DtoLogin dtoLogin) {
         ResponseEntity<Object> rs = null;
 
         try {
-            rs = new ResponseEntity<Object>(imp.crearUsuario(dtoLogin), HttpStatus.OK);
+            rs = new ResponseEntity<Object>(imp.createUser(dtoLogin), HttpStatus.OK);
 
         }catch (EdadNoPermitidaException ex) {
             ex.printStackTrace();
@@ -49,11 +49,11 @@ public class LoginController {
         return rs;
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    public ResponseEntity<Object> eliminarUsuario(@PathVariable Long id){
+    @RequestMapping(method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteUser(@PathVariable Long id, String pass){
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(imp.eliminarUsuario(id),HttpStatus.OK);
+            rs = new ResponseEntity<Object>(imp.deleteUser(id,pass),HttpStatus.OK);
         }catch (NoEncontradoException ex){
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;
@@ -64,4 +64,7 @@ public class LoginController {
         return  rs;
     }
 
-}
+}/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

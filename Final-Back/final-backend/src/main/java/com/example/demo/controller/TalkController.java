@@ -9,14 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-/*
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v2/talk")
-
- */
 public class TalkController {
-    /*
+
     @Autowired
     private TalkImp imp;
 
@@ -25,6 +22,7 @@ public class TalkController {
         ResponseEntity<Object> rs = null;
 
         try {
+
             rs = new ResponseEntity<Object>(imp.crearteTalk(talks), HttpStatus.OK);
 
         } catch (Exception ex) {
@@ -50,5 +48,9 @@ public class TalkController {
     }
 
 
-     */
+
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
