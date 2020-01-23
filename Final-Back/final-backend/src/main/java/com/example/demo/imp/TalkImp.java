@@ -23,9 +23,6 @@ public class TalkImp implements TalksServices {
     @Autowired
     private EventRepository eveRepo;
 
-
-
-
     @Override
     public Login crearteTalk(DtoTalks talks) throws Exception {
 
@@ -37,22 +34,22 @@ public class TalkImp implements TalksServices {
 
         try{
             Talk validateName = talkRepo.findByName(talks.getNameTalkDto());
-            Speaker validateSpeaker = spkRepo.findByName(talks.getNameSpeakerDto());
-            Category validateCategory = catRepo.findByName(talks.getNameCategoryDto());
-            SalonRoom validateSalon = salonRepo.findByName(talks.getNameSalonRoomDto());
-            Event validateEvent = eveRepo.findByName(talks.getNameEventsDto());
+            Speaker validateSpeaker = spkRepo.findByName(talks.getNameSpeakerDto().getNameSpkDto());
+            Category validateCategory = catRepo.findByName(talks.getCategoryDto().getNameCatDto());
+            SalonRoom validateSalon = salonRepo.findByName(talks.getNameSalonRoomDto().getNameSalonDto());
+            Event validateEvent = eveRepo.findByName(talks.getNameEventsDto().getNameEventDto());
             if(validateName==null && validateSpeaker==null && validateCategory==null && validateSalon==null && validateEvent==null){
                 eve = new Event();
-                eve.setName(talks.getNameEventsDto());
+                eve.setName(talks.getNameEventsDto().getNameEventDto());
 
                 pk = new Speaker();
-                pk.setName(talks.getNameSpeakerDto());
+                pk.setName(talks.getNameSpeakerDto().getNameSpkDto());
 
                 cat = new Category();
-                cat.setName(talks.getNameCategoryDto());
+                cat.setName(talks.getCategoryDto().getNameCatDto());
 
                 sr = new SalonRoom();
-                sr.setName(talks.getNameCategoryDto());
+                sr.setName(talks.getNameSalonRoomDto().getNameSalonDto());
 
                 tk = new Talk();
                 tk.setName(talks.getNameTalkDto());
@@ -95,10 +92,10 @@ public class TalkImp implements TalksServices {
     }
 
     @Override
-    public Boolean deleteTalk(Long id) throws Exception {
+    public Boolean deleteTalk(String name) throws Exception {
         Boolean delete = false;
         try{
-            Talk searchTalk = talkRepo.findByid(id);
+            Talk searchTalk = talkRepo.findByName(name);
             if(searchTalk != null){
                 talkRepo.delete(searchTalk);
                 return delete = true;

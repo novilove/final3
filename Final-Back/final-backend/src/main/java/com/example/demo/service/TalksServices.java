@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service;
 public interface TalksServices {
 
     Login crearteTalk(DtoTalks talks) throws Exception;
-    Boolean deleteTalk(Long id) throws Exception;
+    Boolean deleteTalk(String name) throws Exception;
 }

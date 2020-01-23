@@ -8,16 +8,16 @@ public class DtoTalks {
     private Integer durationTalkDto;
 
     //speaker
-    private String nameSpeakerDto;
+    private DtoSpeaker nameSpeakerDto;
 
     //category
-    private String nameCategoryDto;
+    private DtoCategory CategoryDto;
 
     //salonRoom
-    private String nameSalonRoomDto;
+    private DtoSalonRoom nameSalonRoomDto;
 
     //event
-    private String nameEventsDto;
+    private DtoEvent nameEventsDto;
 
     public String getNameTalkDto() {
         return nameTalkDto;
@@ -43,35 +43,35 @@ public class DtoTalks {
         this.durationTalkDto = durationTalkDto;
     }
 
-    public String getNameSpeakerDto() {
+    public DtoSpeaker getNameSpeakerDto() {
         return nameSpeakerDto;
     }
 
-    public void setNameSpeakerDto(String nameSpeakerDto) {
+    public void setNameSpeakerDto(DtoSpeaker nameSpeakerDto) {
         this.nameSpeakerDto = nameSpeakerDto;
     }
 
-    public String getNameCategoryDto() {
-        return nameCategoryDto;
-    }
-
-    public void setNameCategoryDto(String nameCategoryDto) {
-        this.nameCategoryDto = nameCategoryDto;
-    }
-
-    public String getNameSalonRoomDto() {
+    public DtoSalonRoom getNameSalonRoomDto() {
         return nameSalonRoomDto;
     }
 
-    public void setNameSalonRoomDto(String nameSalonRoomDto) {
+    public void setNameSalonRoomDto(DtoSalonRoom nameSalonRoomDto) {
         this.nameSalonRoomDto = nameSalonRoomDto;
     }
 
-    public String getNameEventsDto() {
+    public DtoCategory getCategoryDto() {
+        return CategoryDto;
+    }
+
+    public void setCategoryDto(DtoCategory categoryDto) {
+        CategoryDto = categoryDto;
+    }
+
+    public DtoEvent getNameEventsDto() {
         return nameEventsDto;
     }
 
-    public void setNameEventsDto(String nameEventsDto) {
+    public void setNameEventsDto(DtoEvent nameEventsDto) {
         this.nameEventsDto = nameEventsDto;
     }
 }
