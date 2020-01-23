@@ -26,8 +26,10 @@ public class TalkImp implements TalksServices {
     private EventRepository eveRepo;
 
 
+
     @Autowired
     private TalkRepository talkRepo;
+
 
 
     @Override
@@ -43,10 +45,12 @@ public class TalkImp implements TalksServices {
 
         try{
 
+
             Speaker validateSpeaker = spkRepo.findByName(talks.getNameSpeakerDto());
             Category validateCategory = catRepo.findByName(talks.getNameCategoryDto());
             if(validateSpeaker == null){
                 throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
+
             }
             if(validateSpeaker != null) {
                 Country validateCountry = courepo.findByName(talks.getNameCountryDto());
@@ -108,11 +112,12 @@ public class TalkImp implements TalksServices {
     }
 
     @Override
-    public Boolean deleteTalk(Long id) throws Exception {
+
+    public Boolean deleteTalk(String name) throws Exception {
 
         Boolean delete = false;
         try{
-            Talk searchTalk = talkRepo.findByid(id);
+            Talk searchTalk = talkRepo.findByName(name);
             if(searchTalk != null){
                 talkRepo.delete(searchTalk);
                 return delete = true;

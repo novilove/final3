@@ -1,44 +1,42 @@
 package com.example.demo.Dto;
 
 public class DtoSpeaker {
-    private String nameSpeakerDto;
-    private String descriptionSpeakerDto;
-    private String positionSpeakerDto;
-    private String namecountryDto;
 
-    public String getNameSpeakerDto() {
-        return nameSpeakerDto;
+    private String nameSpkDto;
+    private String descSpkDto;
+    private String positionSpkDto;
+    private DtoCountry countrySpkDto;
+
+    public String getNameSpkDto() {
+        return nameSpkDto;
     }
 
-    public void setNameSpeakerDto(String nameSpeakerDto) {
-        this.nameSpeakerDto = nameSpeakerDto;
+    public void setNameSpkDto(String nameSpkDto) {
+        this.nameSpkDto = nameSpkDto;
     }
 
-    public String getDescriptionSpeakerDto() {
-        return descriptionSpeakerDto;
+    public String getDescSpkDto() {
+        return descSpkDto;
     }
 
-    public void setDescriptionSpeakerDto(String descriptionSpeakerDto) {
-        this.descriptionSpeakerDto = descriptionSpeakerDto;
+    public void setDescSpkDto(String descSpkDto) {
+        this.descSpkDto = descSpkDto;
     }
 
-    public String getPositionSpeakerDto() {
-        return positionSpeakerDto;
+    public String getPositionSpkDto() {
+        return positionSpkDto;
     }
 
-    public void setPositionSpeakerDto(String positionSpeakerDto) {
-        this.positionSpeakerDto = positionSpeakerDto;
+    public void setPositionSpkDto(String positionSpkDto) {
+        this.positionSpkDto = positionSpkDto;
     }
 
-    public String getNamecountryDto() {
-        return namecountryDto;
+    public DtoCountry getCountrySpkDto() {
+        return countrySpkDto;
     }
 
-    public void setNamecountryDto(String namecountryDto) {
-        this.namecountryDto = namecountryDto;
+    public void setCountrySpkDto(DtoCountry countrySpkDto) {
+        this.countrySpkDto = countrySpkDto;
     }
-    /*
-Giovanna Tapia
-giovannatss27@gmail.com
- */
+
 }
