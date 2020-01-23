@@ -1,10 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.Dto.DtoDeleteLogin;
 import com.example.demo.Dto.DtoLogin;
-import com.example.demo.exception.EdadNoPermitidaException;
-import com.example.demo.exception.MailExisteException;
-import com.example.demo.exception.NoEncontradoException;
-import com.example.demo.exception.UsuarioExistenteException;
+import com.example.demo.Dto.DtoSession;
+import com.example.demo.exception.*;
 
 import com.example.demo.imp.LoginImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class LoginController {
     @Autowired
     private LoginImp imp;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/create",method = RequestMethod.POST)
     public ResponseEntity<Object> createUser(@RequestBody DtoLogin dtoLogin) {
         ResponseEntity<Object> rs = null;
 
@@ -49,11 +48,11 @@ public class LoginController {
         return rs;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteUser(@PathVariable Long id, String pass){
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteUser(@RequestBody DtoDeleteLogin delete){
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(imp.deleteUser(id,pass),HttpStatus.OK);
+            rs = new ResponseEntity<Object>(imp.deleteUser(delete),HttpStatus.OK);
         }catch (NoEncontradoException ex){
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;
@@ -64,6 +63,25 @@ public class LoginController {
         return  rs;
     }
 
+    @RequestMapping(value = "/session",method = RequestMethod.POST)
+    public ResponseEntity<Object> session(@RequestBody DtoSession dtoSession) {
+        ResponseEntity<Object> rs = null;
+
+        try {
+            rs = new ResponseEntity<Object>(imp.session(dtoSession), HttpStatus.OK);
+
+
+        } catch (IncorrectException ex) {
+            ex.printStackTrace();
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_ACCEPTABLE);
+
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return rs;
+    }
 }/*
 Giovanna Tapia
 giovannatss27@gmail.com

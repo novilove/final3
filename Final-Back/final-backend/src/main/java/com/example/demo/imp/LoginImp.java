@@ -1,7 +1,9 @@
 package com.example.demo.imp;
 
 
+import com.example.demo.Dto.DtoDeleteLogin;
 import com.example.demo.Dto.DtoLogin;
+import com.example.demo.Dto.DtoSession;
 import com.example.demo.exception.*;
 import com.example.demo.model.Country;
 import com.example.demo.model.Login;
@@ -125,20 +127,21 @@ public class LoginImp implements LoginService {
     }
 
     @Override
-    public Boolean deleteUser(Long id, String pass) throws Exception {
+    public Boolean deleteUser(DtoDeleteLogin delete) throws Exception {
         Boolean elimi = false;
         try {
 
-            Optional<User> buscarUser = userRepo.findById(id);
-            Login buscarMail =  loginRepo.findByEmail(buscarUser.get().getLogin().getEmail());
+            User buscarUser = userRepo.findByid(delete.getIdDelete());
+            Login buscarMail =  loginRepo.findByEmail(buscarUser.getLogin().getEmail());
 
-            if (buscarMail != null && buscarMail.getPassword()==pass) {
+
+            if (buscarMail != null && buscarMail.getPassword() == delete.getPassDelete()) {
 
                 loginRepo.delete(buscarMail);
-                userRepo.delete(buscarUser.get());
+                userRepo.delete(buscarUser);
                 return elimi = true;
             }
-            if (buscarMail != null && buscarMail.getPassword()!=pass) {
+            if (buscarMail != null && buscarMail.getPassword() != delete.getPassDelete()) {
                 throw new IncorrectException(Constant.ERROR_INCORRECTO);
             }
             if(buscarMail== null){
@@ -155,6 +158,28 @@ public class LoginImp implements LoginService {
             throw new Exception(Constant.ERROR_SISTEMA);
         }
         return elimi;
+    }
+
+    @Override
+    public Boolean session(DtoSession dto) throws Exception {
+        Boolean valido = false;
+        try{
+            Login validarmail = loginRepo.findByEmail(dto.getEmailD());
+            if((validarmail.getPassword()) == (dto.getPassD())){
+                return valido = true;
+            }
+            if((validarmail.getPassword()) != (dto.getPassD())){
+                throw new IncorrectException(Constant.ERROR_INCORRECTO);
+            }
+
+        }catch (IncorrectException ex) {
+            ex.printStackTrace();
+            throw new IncorrectException(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception(Constant.ERROR_SISTEMA);
+        }
+        return null;
     }
 /*
 Giovanna Tapia
