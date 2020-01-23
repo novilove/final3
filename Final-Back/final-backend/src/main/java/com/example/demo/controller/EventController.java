@@ -36,10 +36,10 @@ public class EventController {
         return rs;
     }
     @RequestMapping(method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteEvent(@PathVariable Long name){
+    public ResponseEntity<Object> deleteEvent(@PathVariable Long id){
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(impl.deleteEvent(name),HttpStatus.OK);
+            rs = new ResponseEntity<Object>(impl.deleteEvent(id),HttpStatus.OK);
         }catch (NoEncontradoException ex){
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;

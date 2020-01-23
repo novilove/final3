@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public interface EventService {
     Event createEvent(DtoEvent events) throws Exception;
 
-    Boolean deleteEvent(Long name) throws Exception;
+    Boolean deleteEvent(Long id) throws Exception;
 
 }
 /*

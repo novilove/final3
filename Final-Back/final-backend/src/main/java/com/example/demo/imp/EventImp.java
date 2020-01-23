@@ -58,10 +58,10 @@ public class EventImp implements EventService {
 
 
     @Override
-    public Boolean deleteEvent(Long name) throws Exception {
+    public Boolean deleteEvent(Long id) throws Exception {
         Boolean delete = false;
         try{
-            Optional<Event> buscarEvent = everepo.findById(name);
+            Optional<Event> buscarEvent = everepo.findById(id);
             if(buscarEvent != null){
                 everepo.delete(buscarEvent.get());
                 return delete = true;
