@@ -13,77 +13,97 @@ import org.springframework.stereotype.Service;
 public class TalkImp implements TalksServices {
 
     @Autowired
-    private TalkRepository talkRepo;
-    @Autowired
     private SpeakerRepository spkRepo;
     @Autowired
-    private CategoryRepository catRepo;
+    private CountryRepository courepo;
+    @Autowired
+    private PlaceRepository placerepo;
     @Autowired
     private SalonRoomRepository salonRepo;
     @Autowired
+    private CategoryRepository catRepo;
+    @Autowired
     private EventRepository eveRepo;
+
+
+
+    @Autowired
+    private TalkRepository talkRepo;
+
+
 
     @Override
     public Login crearteTalk(DtoTalks talks) throws Exception {
 
-        Talk tk = null;
         Speaker pk = null;
-        Category cat = null;
+        Country cou = null;
+        Place pla = null;
         SalonRoom sr = null;
+        Category cat = null;
         Event eve = null;
+        Talk tk = null;
 
         try{
-            Talk validateName = talkRepo.findByName(talks.getNameTalkDto());
-            Speaker validateSpeaker = spkRepo.findByName(talks.getNameSpeakerDto().getNameSpkDto());
-            Category validateCategory = catRepo.findByName(talks.getCategoryDto().getNameCatDto());
-            SalonRoom validateSalon = salonRepo.findByName(talks.getNameSalonRoomDto().getNameSalonDto());
-            Event validateEvent = eveRepo.findByName(talks.getNameEventsDto().getNameEventDto());
-            if(validateName==null && validateSpeaker==null && validateCategory==null && validateSalon==null && validateEvent==null){
-                eve = new Event();
-                eve.setName(talks.getNameEventsDto().getNameEventDto());
 
-                pk = new Speaker();
-                pk.setName(talks.getNameSpeakerDto().getNameSpkDto());
 
-                cat = new Category();
-                cat.setName(talks.getCategoryDto().getNameCatDto());
-
-                sr = new SalonRoom();
-                sr.setName(talks.getNameSalonRoomDto().getNameSalonDto());
-
-                tk = new Talk();
-                tk.setName(talks.getNameTalkDto());
-                tk.setDescription(talks.getDescriptionTalkDto());
-                tk.setDuration(talks.getDurationTalkDto());
-                tk.setEvent(eve);
-                tk.setSpeakers(pk);
-                tk.setCategories(cat);
-                tk.setSalon(sr);
-
-                tk = talkRepo.save(tk);
+            Speaker validateSpeaker = spkRepo.findByName(talks.getNameSpeakerDto());
+            Category validateCategory = catRepo.findByName(talks.getNameCategoryDto());
+            if(validateSpeaker == null){
+                throw new NoEncontradoException(Constant.ERROR_NO_ENCONTRADO);
 
             }
-            if(validateName==null && validateSpeaker!=null && validateCategory!=null && validateSalon!=null && validateEvent!=null){
-                eve = validateEvent;
+            if(validateSpeaker != null) {
+                Country validateCountry = courepo.findByName(talks.getNameCountryDto());
+                Place valitePlace = placerepo.findByName(talks.getNamePlaceDto());
+                SalonRoom validateSalon = salonRepo.findByName(talks.getNameSalonRoomDto());
 
-                pk = validateSpeaker;
+                Event validateEvent = eveRepo.findByName(talks.getNameEventsDto());
+                Talk validateName = talkRepo.findByName(talks.getNameTalkDto());
 
-                cat = validateCategory;
 
-                sr = validateSalon;
+                if (validateName == null && validateCategory == null && validateSalon == null && validateEvent == null) {
+                    eve = new Event();
+                    eve.setName(talks.getNameEventsDto());
 
-                tk = new Talk();
-                tk.setName(talks.getNameTalkDto());
-                tk.setDescription(talks.getDescriptionTalkDto());
-                tk.setDuration(talks.getDurationTalkDto());
-                tk.setEvent(eve);
-                tk.setSpeakers(pk);
-                tk.setCategories(cat);
-                tk.setSalon(sr);
+                    pk = new Speaker();
+                    pk.setName(talks.getNameSpeakerDto());
 
-                tk = talkRepo.save(tk);
+                    cat = new Category();
+                    cat.setName(talks.getNameCategoryDto());
+
+                    sr = new SalonRoom();
+                    sr.setName(talks.getNameCategoryDto());
+
+
+                    tk = new Talk();
+                    tk.setName(talks.getNameTalkDto());
+                    tk.setDescription(talks.getDescriptionTalkDto());
+                    tk.setDuration(talks.getDurationTalkDto());
+                    tk.setEvent(eve);
+                    tk.setSpeakers(pk);
+                    tk.setCategories(cat);
+                    tk.setSalon(sr);
+
+                }
+                if (validateName == null && validateSpeaker != null && validateCategory != null && validateSalon != null && validateEvent != null) {
+                    eve = validateEvent;
+
+                    pk = validateSpeaker;
+
+                    cat = validateCategory;
+
+                    sr = validateSalon;
+
+                    tk = new Talk();
+                    tk.setName(talks.getNameTalkDto());
+                    tk.setDescription(talks.getDescriptionTalkDto());
+                    tk.setDuration(talks.getDurationTalkDto());
+                    tk.setEvent(eve);
+                    tk.setSpeakers(pk);
+                    tk.setCategories(cat);
+                    tk.setSalon(sr);
+                }
             }
-
         }catch (Exception e){
             e.printStackTrace();
             throw new Exception(Constant.ERROR_SISTEMA);

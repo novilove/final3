@@ -60,7 +60,7 @@ public class LoginImp implements LoginService {
 
                 cou = new Country();
                 cou.setName(dtoLogin.getCountryDto());
-               countRepo.save(cou);
+                countRepo.save(cou);
 
                 use = new User();
                 use.setRut(dtoLogin.getRutDto());
@@ -68,7 +68,7 @@ public class LoginImp implements LoginService {
                 use.setLastName(dtoLogin.getLastNameDto());
                 use.setAge(dtoLogin.getAgeDto());
                 use.setGenre(dtoLogin.getGenreDto());
-                use.setType(dtoLogin.getTypeDto());
+                use.setType("comun");
                 use.setCountry(cou);
                 use.setLogin(log);
 
@@ -94,7 +94,7 @@ public class LoginImp implements LoginService {
                 use.setLastName(dtoLogin.getLastNameDto());
                 use.setAge(dtoLogin.getAgeDto());
                 use.setGenre(dtoLogin.getGenreDto());
-                use.setType(dtoLogin.getTypeDto());
+                use.setType("comun");
                 use.setCountry(cou);
                 use.setLogin(log);
 
