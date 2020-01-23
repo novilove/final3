@@ -92,6 +92,7 @@ public class TalkImp implements TalksServices {
 
     @Override
     public Boolean deleteTalk(Long id) throws Exception {
+
         Boolean delete = false;
         try{
             Talk searchTalk = talkRepo.findByid(id);
