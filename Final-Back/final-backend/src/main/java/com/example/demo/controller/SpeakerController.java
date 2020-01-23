@@ -1,10 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.Dto.DtoSpeaker;
 
-import com.example.demo.Dto.DtoTalks;
-import com.example.demo.Dto.DtoUserEvent;
 import com.example.demo.exception.NoEncontradoException;
-import com.example.demo.imp.UserEventImp;
+import com.example.demo.imp.SpeakerImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +11,18 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/v2/userevent")
-public class UserEventController {
-
+@RequestMapping("/api/v2/speak")
+public class SpeakerController {
     @Autowired
-    private UserEventImp imp;
+    private SpeakerImp imp;
+
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Object> go(@RequestBody DtoUserEvent nombre) {
+    public ResponseEntity<Object> createSpeak(@RequestBody DtoSpeaker speak) {
         ResponseEntity<Object> rs = null;
 
         try {
-            rs = new ResponseEntity<Object>(imp.go(nombre), HttpStatus.OK);
+
+            rs = new ResponseEntity<Object>(imp.createSpeak(speak), HttpStatus.OK);
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -31,11 +31,11 @@ public class UserEventController {
         return rs;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public ResponseEntity<Object> notGo(@PathVariable DtoUserEvent nombre){
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteSpeak(@PathVariable Long id){
         ResponseEntity<Object> rs = null;
         try {
-            rs = new ResponseEntity<Object>(imp.notGo(nombre),HttpStatus.OK);
+            rs = new ResponseEntity<Object>(imp.deleteSpeak(id),HttpStatus.OK);
         }catch (NoEncontradoException ex){
             ex.printStackTrace();
             rs = new ResponseEntity<Object>(ex.getMessage(), HttpStatus.NOT_FOUND) ;
@@ -45,9 +45,6 @@ public class UserEventController {
         }
         return  rs;
     }
-
-
-
 }
 /*
 Giovanna Tapia

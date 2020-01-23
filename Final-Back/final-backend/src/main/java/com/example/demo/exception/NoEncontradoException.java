@@ -7,7 +7,8 @@ public class NoEncontradoException extends Exception{
     public NoEncontradoException(String message){
         super(message);
     }
-    /*
+/*
 Giovanna Tapia
+giovannatss27@gmail.com
  */
 }

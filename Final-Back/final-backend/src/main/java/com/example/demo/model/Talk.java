@@ -100,4 +100,8 @@ public class Talk {
     public void setCategories(Category categories) {
         this.categories = categories;
     }
+    /*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
 }

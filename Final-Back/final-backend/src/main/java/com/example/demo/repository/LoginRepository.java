@@ -14,3 +14,7 @@ public interface LoginRepository extends JpaRepository<Login, Long> {
 
 
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

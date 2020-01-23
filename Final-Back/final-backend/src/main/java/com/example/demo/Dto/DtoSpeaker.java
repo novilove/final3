@@ -1,6 +1,7 @@
 package com.example.demo.Dto;
 
 public class DtoSpeaker {
+
     private String nameSpkDto;
     private String descSpkDto;
     private String positionSpkDto;
@@ -37,4 +38,5 @@ public class DtoSpeaker {
     public void setCountrySpkDto(DtoCountry countrySpkDto) {
         this.countrySpkDto = countrySpkDto;
     }
+
 }

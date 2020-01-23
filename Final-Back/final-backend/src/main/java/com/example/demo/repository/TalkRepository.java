@@ -9,3 +9,7 @@ public interface TalkRepository extends JpaRepository<Talk,Long> {
     Talk findByid(Long id);
     Talk findByName(String name);
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

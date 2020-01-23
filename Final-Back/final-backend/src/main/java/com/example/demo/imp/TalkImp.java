@@ -92,7 +92,9 @@ public class TalkImp implements TalksServices {
     }
 
     @Override
+
     public Boolean deleteTalk(String name) throws Exception {
+
         Boolean delete = false;
         try{
             Talk searchTalk = talkRepo.findByName(name);

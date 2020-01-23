@@ -11,3 +11,7 @@ public interface EventRepository extends JpaRepository<Event,Long> {
 
     Event findByName(String nameDto);
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

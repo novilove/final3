@@ -84,4 +84,8 @@ public class DtoLogin {
         this.typeDto = typeDto;
     }
 
+    /*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
 }

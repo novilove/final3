@@ -48,4 +48,8 @@ public class UserEvent {
     public void setEvents(Event events) {
         this.event = events;
     }
+    /*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
 }

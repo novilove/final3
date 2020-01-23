@@ -9,3 +9,7 @@ public interface SpeakerRepository extends JpaRepository<Speaker,Long> {
    Speaker findByid(Long id);
    Speaker findByName(String name);
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

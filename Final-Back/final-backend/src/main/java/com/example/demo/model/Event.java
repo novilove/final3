@@ -1,6 +1,9 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -8,22 +11,21 @@ import java.util.List;
 public class Event {
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID",nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "NAME", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "DURATION", nullable = false)
-    private Integer duration;
 
     @Column(name = "DESCRIPTION", nullable = false)
     private String description;
 
     @Column(name = "DATE")
-    private String date;
-//@Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date date;
+
 
     public Long getId() {
         return id;
@@ -41,13 +43,7 @@ public class Event {
         this.name = name;
     }
 
-    public Integer getDuration() {
-        return duration;
-    }
 
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
 
     public String getDescription() {
         return description;
@@ -57,12 +53,16 @@ public class Event {
         this.description = description;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
+    /*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
 }
 

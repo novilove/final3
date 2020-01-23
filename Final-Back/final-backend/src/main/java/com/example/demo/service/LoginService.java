@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 @Service
 public interface LoginService {
 
-    Login crearUsuario(DtoLogin logins) throws Exception;
-    Boolean eliminarUsuario(Long id) throws Exception;
+    Login createUser(DtoLogin logins) throws Exception;
+    Boolean deleteUser(Long id, String pass) throws Exception;
 }
 /*
 Giovanna Tapia
+giovannatss27@gmail.com
  */

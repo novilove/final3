@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface UserEventService {
-    UserEvent go(DtoUserEvent nombre) throws Exception;
-    UserEvent notGo(DtoUserEvent nombre) throws Exception;
+    Boolean go(DtoUserEvent nombre) throws Exception;
+    Boolean notGo(DtoUserEvent nombre) throws Exception;
 
 
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

@@ -9,3 +9,7 @@ public interface CategoryRepository extends JpaRepository<Category,Long> {
     Category findByid(Long id);
     Category findByName(String nameCategotyDto);
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

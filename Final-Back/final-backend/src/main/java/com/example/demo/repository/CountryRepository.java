@@ -8,3 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface CountryRepository extends JpaRepository<Country,Long> {
     Country findByName(String name);
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */

@@ -35,8 +35,8 @@ public class EventController {
         }
         return rs;
     }
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteEvent(@PathVariable String name){
+    @RequestMapping(method = RequestMethod.DELETE)
+    public ResponseEntity<Object> deleteEvent(@PathVariable Long name){
         ResponseEntity<Object> rs = null;
         try {
             rs = new ResponseEntity<Object>(impl.deleteEvent(name),HttpStatus.OK);
@@ -49,5 +49,8 @@ public class EventController {
         }
         return  rs;
     }
-
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
 }

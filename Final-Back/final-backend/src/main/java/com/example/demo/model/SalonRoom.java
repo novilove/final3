@@ -52,4 +52,8 @@ public class SalonRoom {
     public void setPlaces(Place places) {
         this.places = places;
     }
+    /*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
 }

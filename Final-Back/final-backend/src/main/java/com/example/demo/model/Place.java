@@ -66,5 +66,8 @@ public class Place {
         this.country = country;
     }
 
-
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
 }

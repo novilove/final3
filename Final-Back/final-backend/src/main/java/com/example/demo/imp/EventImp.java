@@ -10,6 +10,8 @@ import com.example.demo.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class EventImp implements EventService {
     @Autowired
@@ -30,7 +32,7 @@ public class EventImp implements EventService {
                 eve.setDescription(events.getDescriptionEventDto());
                 eve.setDate(events.getDateEventDto());
 
-                eve = everepo.save(eve);
+                everepo.save(eve);
                 return eve;
 
             }
@@ -56,12 +58,12 @@ public class EventImp implements EventService {
 
 
     @Override
-    public Boolean deleteEvent(String name) throws Exception {
+    public Boolean deleteEvent(Long name) throws Exception {
         Boolean delete = false;
         try{
-            Event buscarEvent = everepo.findByName(name);
+            Optional<Event> buscarEvent = everepo.findById(name);
             if(buscarEvent != null){
-                everepo.delete(buscarEvent);
+                everepo.delete(buscarEvent.get());
                 return delete = true;
             }
             if(buscarEvent == null){
@@ -79,7 +81,10 @@ public class EventImp implements EventService {
     }
 
 
-
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
     
 
 }

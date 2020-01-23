@@ -16,6 +16,7 @@ public class DtoTalks {
     //salonRoom
     private DtoSalonRoom nameSalonRoomDto;
 
+
     //event
     private DtoEvent nameEventsDto;
 

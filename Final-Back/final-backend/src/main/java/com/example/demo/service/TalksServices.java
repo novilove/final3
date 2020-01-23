@@ -11,3 +11,7 @@ public interface TalksServices {
     Login crearteTalk(DtoTalks talks) throws Exception;
     Boolean deleteTalk(String name) throws Exception;
 }
+/*
+Giovanna Tapia
+giovannatss27@gmail.com
+ */
